@@ -1,0 +1,30 @@
+*{
+   box-sizing: border-box;
+   margin: 0;
+   padding: 0;
+   font-family: sans-serif ; 
+}
+
+
+.btn1{
+
+  background: white;
+  color: #acc7d8;
+  cursor: pointer;
+  transition: 0.2s;
+  margin: 0;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-size: 1.1rem;
+  border-radius: 20px;
+  border: 1px solid #acc7d8;
+
+  
+}
+
+.btn1:hover{
+  background: rgb(0, 22, 44);
+  color: #acc7d8;
+  border: 1px solid rgb(0, 22, 44);
+
+}

@@ -1,0 +1,129 @@
+#!/usr/bin/env node
+
+/**
+ * Module dependencies.
+ */
+
+var app = require('../app');
+var debug = require('debug')('agrosmart:server');
+var http = require('http');
+const socketIO = require('socket.io');
+
+/**
+ * Get port from environment and store in Express.
+ */
+
+var port = normalizePort(process.env.PORT || '3000');
+app.set('port', port);
+
+/**
+ * Create HTTP server.
+ */
+
+var server = http.createServer(app);
+
+
+const io = socketIO.listen(server);
+
+/**
+ * Listen on provided port, on all network interfaces.
+ */
+
+server.listen(port);
+server.on('error', onError);
+server.on('listening', onListening);
+
+
+const SerialPort = require('serialport');
+const ReadLine = SerialPort.parsers.Readline;
+
+const portName = new SerialPort("COM3", {
+  baudRate: 115200
+});
+const parser = portName.pipe(new ReadLine({ delimiter: '\r\n' }));
+
+parser.on('open', function () {
+  console.log('connection is opened');
+});
+
+parser.on('data', function (data) {
+
+  var temperature = data.slice(0, 2);
+  var humidity = data.slice(5, 7);
+  
+
+
+  let temp = parseInt(temperature, 10) + " °C";
+  let humi = parseInt(humidity, 10) + " %";
+
+  console.log(temp);
+  console.log(humi);
+
+  io.emit("temp", temperature)
+  io.emit("humi",humidity)
+
+});
+
+
+parser.on('error', (err) => console.log(err));
+portName.on('error', (err) => console.log(err));
+
+/**
+ * Normalize a port into a number, string, or false.
+ */
+
+function normalizePort(val) {
+  var port = parseInt(val, 10);
+
+  if (isNaN(port)) {
+    // named pipe
+    return val;
+  }
+
+  if (port >= 0) {
+    // port number
+    return port;
+  }
+
+  return false;
+}
+
+/**
+ * Event listener for HTTP server "error" event.
+ */
+
+function onError(error) {
+  if (error.syscall !== 'listen') {
+    throw error;
+  }
+
+  var bind = typeof port === 'string'
+    ? 'Pipe ' + port
+    : 'Port ' + port;
+
+  // handle specific listen errors with friendly messages
+  switch (error.code) {
+    case 'EACCES':
+      console.error(bind + ' requires elevated privileges');
+      process.exit(1);
+      break;
+    case 'EADDRINUSE':
+      console.error(bind + ' is already in use');
+      process.exit(1);
+      break;
+    default:
+      throw error;
+  }
+}
+
+/**
+ * Event listener for HTTP server "listening" event.
+ */
+
+function onListening() {
+  var addr = server.address();
+  var bind = typeof addr === 'string'
+    ? 'pipe ' + addr
+    : 'port ' + addr.port;
+  debug('Listening on ' + bind);
+}

@@ -1,0 +1,41 @@
+
+/* Add padding to containers */
+.container {
+  padding: 16px;
+}
+
+/* The "Forgot password" text */
+div.psw {
+  float: right;
+  padding-top: -16px;
+}
+
+/* Change styles for span and cancel button on extra small screens */
+@media screen and (max-width: 300px) {
+  div.psw {
+    display: block;
+    float: none;
+  }
+  div{  width: max-content;
+}
+  
+}
+#cont1{
+box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+}
+#cont1:hover{
+box-shadow: none;
+border-bottom: 3px solid #acc7d8;
+
+}
+
+
+#title{
+
+  font-family: 'Arial Narrow', Arial, sans-serif;
+  font-size: 20px;
+  font-weight: bold;
+  color:#9fcc7e;
+  text-transform: uppercase;
+
+}

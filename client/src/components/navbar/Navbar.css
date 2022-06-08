@@ -1,0 +1,28 @@
+
+#nav-dropdow{color: #acc7d8; }
+#nav-dropdow:hover{color: #acafae; }
+
+.class{
+color: #acc7d8;
+margin: 10px; 
+font-weight: bold;
+font-size: 15px;
+
+}
+
+.class:hover {
+color: #acafae;
+
+}
+
+#responsive-navbar-nav{
+margin-top: 8px;
+}
+  
+
+.navi{
+  border-radius: 10px;
+  margin: 20px;
+  height: 80px;
+  opacity: 0.8;
+}
