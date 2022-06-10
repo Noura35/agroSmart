@@ -61,7 +61,7 @@ const Navigation = ({ user }) => {
                   <span style={{fontWeight:"bold",color:"#34495e",fontSize :"15px",textTransform: "capitalize",fontStyle:"italic"}}>Bienvenue {user.nom}</span>
                   
                     <Dropdown >
-                   <Dropdown.Toggle style={{width:"max-content",marginRight:'80px',backgroundColor:"#fff",color:"#acc7d8", fontSize: "18px",border:"none"}}>
+                   <Dropdown.Toggle style={{width:"max-content",marginRight:'80px',backgroundColor:"#fff",color:"#92ce67", fontSize: "18px",border:"none"}}>
                       <FaRegUser />
                     </Dropdown.Toggle>
 

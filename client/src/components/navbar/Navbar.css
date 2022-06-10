@@ -1,9 +1,9 @@
 
-#nav-dropdow{color: #acc7d8; }
-#nav-dropdow:hover{color: #acafae; }
+#nav-dropdow{color: #92ce67; }
+#nav-dropdow:hover{color: rgb(5, 168, 5); }
 
 .class{
-color: #acc7d8;
+color: #8ecc61;
 margin: 10px; 
 font-weight: bold;
 font-size: 15px;
@@ -11,7 +11,7 @@ font-size: 15px;
 }
 
 .class:hover {
-color: #acafae;
+color: rgb(5, 168, 5);
 
 }
 

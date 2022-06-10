@@ -4,8 +4,8 @@ const zoneSchema = new mongoose.Schema(
 
     {
     posterId: {
-            type: String,
-            required:true
+      type: String,
+      required:true
         },      
     title: {
       type: String,

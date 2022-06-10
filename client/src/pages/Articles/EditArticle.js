@@ -15,7 +15,9 @@ function EditArticle(props) {
   const [title,setTitle]=useState("");
   const [article,setArticle]=useState("");
   const [authorname,setAuthorname]=useState("");
-  const [message,setMessage]=useState("");
+  const [message, setMessage] = useState("");
+  
+  
 
   let { id } = useParams();
   

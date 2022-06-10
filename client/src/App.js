@@ -228,8 +228,8 @@ axios
         } />
 
         <Route path="/materiels/:id"  element={          
-        <PrivateRouter cards={cards} >
-        <EditMateriel />
+        <PrivateRouter user={user} >
+        <EditMateriel cards={cards}/>
        </PrivateRouter>
 
         }/>
