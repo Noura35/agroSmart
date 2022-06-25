@@ -24,7 +24,7 @@ const Articles = ({ posts,user }) => {
 
     return (
         <div>
-            <h2 style={{ textAlign: "center", fontSize: "60px", color: "black", background: `url(${blogima})`, backgroundSize: "auto", padding: "170px", fontFamily:"monospace", marginBottom: "0px", color: "HighlightText" , backgroundSize:"cover"}}> Cultivons un peu !</h2>
+            <h2 style={{ textAlign: "center", fontSize: "60px", color: "black", background: `url(${blogima})`, backgroundSize: "auto", padding: "170px", fontFamily: "satisfy", marginBottom: "0px", color: "HighlightText" , backgroundSize:"cover"}}> Cultivons un peu !</h2>
             <Navbar user={user}/>
 
             {!posts.length ? <img src={spinner} alt="Loading..." style={{ display: "block", width: "120px", height: "120px", margin: "0 auto" }}/> :
