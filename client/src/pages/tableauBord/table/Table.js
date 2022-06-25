@@ -1,13 +1,36 @@
-import * as React from 'react';
+import  React, { useEffect, useState }  from 'react';
+import './Table.css'
+import axios from 'axios';
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
 import TableCell from '@mui/material/TableCell';
 import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
-import './Table.css'
+export default function BasicTable() {
 
-function createData( name:String, valeur1: number, valeur2: number,valeur3: number) {
+   const obj = [];
+    const fetchData = async () => {
+      const res = await axios.get('https://smartwaterring.herokuapp.com/moy')
+
+        for (let i = 0; i < res.data.length; i++) {
+            obj.unshift(res.data) 
+    }
+
+      console.log(obj)
+
+
+  }
+  
+    useEffect(() => {
+        fetchData();
+},[])
+
+
+  function createData(name: String, valeur1: number, valeur2: number, valeur3: number) {
+    
+
+    
   return { name, valeur1, valeur2, valeur3 };
 }
 
@@ -19,8 +42,8 @@ const rows = [
 
 ];
 
-export default function BasicTable() {
-    return (
+
+   return (
       <div className='Table'>
             
             <h3>Aujourd'hui</h3>

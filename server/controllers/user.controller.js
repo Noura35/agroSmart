@@ -19,27 +19,28 @@ module.exports.userInfo = (req, res) => {
 };
 
 module.exports.updateUser = async (req, res) => {
-  if (!ObjectID.isValid(req.params.id))
-    return res.status(400).send("ID unknown : " + req.params.id);
-
+  const { errors, isValid } = ValidateProfile(req.body);
   try {
-    await UserModel.findOneAndUpdate(
-      { _id: req.params.id },
-      {
-        $set: {
-          bio: req.body.bio,
-        },
-      },
-      { new: true, upsert: true, setDefaultsOnInsert: true },
-      (err, docs) => {
-        if (!err) return res.send(docs);
-        if (err) return res.status(500).send({ message: err });
-      }
-    );
-  } catch (err) {
-    return res.status(500).json({ message: err });
+    if (!isValid) {
+      res.status(404).json(errors);
+    } else {
+      const data = await UserModel.findOneAndUpdate(
+        { _id: req.params.id },
+        req.body,
+        { new: true }
+      );
+      res.status(201).json(data);
+    }
+  } catch (error) {
+    console.log(error.message);
   }
 };
+
+
+
+
+
+
 
 module.exports.deleteUser = async (req, res) => {
   if (!ObjectID.isValid(req.params.id))
@@ -121,41 +122,32 @@ module.exports.unfollow = async (req, res) => {
 
 
 
+
 //ajouter user
 
 module.exports.AddProfil = async (req, res) => {
-    try {
-        const { isValid, errors } = ValidateProfile(req.body);
-        if (!isValid) {
-
-            res.status(404).json(errors);
-            
+ const { errors, isValid } = ValidateProfile(req.body);
+  try {
+    if (!isValid) {
+      res.status(404).json(errors);
+    } else {
+      await UserModel.findOne({ email: req.body.email }).then(async (exist) => {
+        if (exist) {
+          errors.email = "User Exist";
+          res.status(404).json(errors);
         } else {
-               UserModel.findOne({ id: req.params.id })
-              .then(async (user) => {
-                if (!user) {
-                      req.body.id = req.params.id
-                      await UserModel.create(req.body);
-                      res.status(200).json({message:"success"})
-                
-                } else {
-                     await UserModel.findByIdAndUpdate(
-                        { _id: user._id },
-                          req.body,
-                        { new:true},   
-                    ).then(result => {
-                        res.status(200).json(result)
-                    })
-                     }
-            })
- 
+          await UserModel.create(req.body);
+          res.status(201).json({ message: "User added with success" });
         }
-
-    } catch (error){
-      res.status(404).json(error.message) 
+      });
     }
+  } catch (error) {
+    console.log(error.message);
+  }
 }
 
+
+//Update user :
 
 
 

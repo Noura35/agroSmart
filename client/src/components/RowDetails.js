@@ -21,7 +21,7 @@ function RowDetails({ nom, prenom, email, role, bio,id }) {
     <td>{email}</td>
     <td>{bio}</td>
     <td className="gap__actions">
-      <Link to={`/profil/${id}`} className="text-white">
+      <Link to={`/${id}`} className="text-white">
           <span style={{marginRight:"20px"}}>
               <IconContext.Provider value={{ size: 22, color:"#b2bec3"}}>
               <AiFillEdit />

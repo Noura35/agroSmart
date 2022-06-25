@@ -1,65 +1,76 @@
 
 .emb{
-    margin:200px auto 100px auto;
-    width: 500px;
-    box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
-    padding: 30px;
+  margin:200px auto 100px auto;
+  width: 500px;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+  padding: 30px;
 }
 .btn4{
-   margin-left:60px
+ margin-left:60px
 }
 .headerTitleEm{
-    position: absolute;
-    margin-top: 200px;
-    margin-left :400px;
-    font-size: 30px;
-    display: flex;
-    font-family:Georgia, 'Times New Roman', Times, serif;
-    color: rgb(94, 218, 187);
-    animation-duration: 3s;
-    animation-name: slidein; 
+  position: absolute;
+  margin-top: 200px;
+  margin-left :400px;
+  font-size: 30px;
+  display: flex;
+  font-family:Georgia, 'Times New Roman', Times, serif;
+  color: rgb(94, 218, 187);
+  animation-duration: 3s;
+  animation-name: slidein; 
+
+}
+
+
+#h-100:hover{
+transform: scale(1.06);
+transition: all 0.3s ease-out;
+color: #1c2237;
+ background-color: #e4e8ff;
+ border-bottom: 4px solid #5e88a0;
+
 }
 
 @keyframes slidein {
-    from {
-      margin-left: 100%;
-      width: 300%;
-    }
-  
-    to {
-      margin-left: 0%;
-      width: 100%;
-    }
+  from {
+    margin-left: 100%;
+    width: 300%;
   }
 
-  .btn-success{
+  to {
+    margin-left: 0%;
+    width: 100%;
+  }
+}
 
-  margin-left:90% ;
-  width:max-content;
-   margin-top:120px
+.btn-success{
+
+margin-left:90% ;
+width:max-content;
+ margin-top:120px
 }  
 
- .btn-success span {
-  cursor: pointer;
-  display: inline-block;
-  position: relative;
-  transition: 0.5s;
+.btn-success span {
+cursor: pointer;
+display: inline-block;
+position: relative;
+transition: 0.5s;
 }
 
 .btn-success span:after {
-  content: '\00bb';
-  position: absolute;
-  opacity: 0;
-  top: 0;
-  right: -20px;
-  transition: 0.5s;
+content: '\00bb';
+position: absolute;
+opacity: 0;
+top: 0;
+right: -20px;
+transition: 0.5s;
 }
 
 .btn:hover span {
-  padding-right: 25px;
+padding-right: 25px;
 }
 
 .btn:hover span:after {
-  opacity: 1;
-  right: 0;
+opacity: 1;
+right: 0;
 }

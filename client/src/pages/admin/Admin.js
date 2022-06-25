@@ -39,14 +39,14 @@ function Admin() {
   }
 
   const OnDelete = (id)=>{
-    if(window.confirm("are you sure to delete this user")){
+    if(window.confirm("êtes-vous sûr de supprimer cet utilisateur")){
  
      axios.delete(`user/${id}`)
      .then(res=>{
       setMessage(res.data.message)
       setShow(true)
       setTimeout(() => {
-        setShow(false)
+      setShow(false)
       }, 4000);
      })
     }
@@ -109,7 +109,7 @@ function Admin() {
           />
          
           <Inputs
-            placeholder="role"
+            placeholder="role: ADMIN ou USER"
             type="text"
             name="role"
             onChangeHandler={onChangeHandler}
@@ -158,9 +158,9 @@ function Admin() {
                  nom={nom}
                  prenom={prenom}
                  email={email}      
-                bio={bio}
-                id={_id}
-                OnDelete={OnDelete}
+                  bio={bio}
+                  id={_id}
+                 OnDelete={OnDelete}
 
               />
             ))}

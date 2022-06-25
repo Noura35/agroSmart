@@ -56,16 +56,11 @@ useEffect(() => {
         <h5 style={{marginTop:"10px" , marginLeft:"22px" , color:"#6dc068"}}>Cultivons nos données comme notre terre !</h5>
         </div>
         
-      <div className='row'>
-          <div className='col' >
+      
           <p className="message " style={{marginTop:"30px",marginLeft:"22px" ,color:"red" , padding:"10px"}}>{message}</p>
 
-            <Form  style={{ marginTop: "60px", marginLeft: "6px" , padding:"40px" ,border: "solid #b6e0b4" , borderRadius:"25px"}} onSubmit={changeOnClick} encType="multipart/form-data">
+            <Form  className="emb"  style={{ marginTop: "80px",textAlign:'center', padding: "40px", border: "solid #b6e0b4", borderRadius: "25px" }} onSubmit={changeOnClick} encType="multipart/form-data">
                
-              <Form.Group className="mb-4" >
-                <Form.Control type="file" size="lg"  style={{border:" 3px solid c9ecf8"}}/>
-                <Form.Control.Feedback type="invalid"> </Form.Control.Feedback>
-              </Form.Group>
 
               <Form.Group className="mb-4" hasValidation>
                 <Form.Control type="text" placeholder="Nom d'éditeur" htmlFor="authorname"  style={{border:" 3px solid c9ecf8"}} value={authorname} onChange={e=>setAuthorname(e.target.value)} required />
@@ -88,13 +83,9 @@ useEffect(() => {
               </div>
             </Form>
           </div>
-          <div className='col'>
-          <img src={blog} style={{marginTop:"80px" , width:"150%" , marginLeft:"100px"}}/>
+          
           </div>
-          </div>
-        </div>
-      </div>
- 
+       
   );
 }
 

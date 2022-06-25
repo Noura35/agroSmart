@@ -12,29 +12,29 @@ module.exports = function ValidateRegister(data) {
  data.confirm = !isEmpty(data.confirm) ? data.confirm : "";
 
   if (validator.isEmpty(data.nom)) { // isEmpty one fct of validator
-    errors.nom = "Required nom";
+    errors.nom = "Le nom  est requis";
     }
  if (validator.isEmpty(data.prenom)) {
-    errors.prenom = "Required laste prenom";
+    errors.prenom = "Le prenom  est requis";
   }
   if (!validator.isEmail(data.email)) { // isEmail one fct of validator
-    errors.email = "Required format email";
+    errors.email = "Respecter le format email";
     }
      if (validator.isEmpty(data.email)) {
-    errors.email = "Required  email";
+    errors.email = "L'email  est requis";
   }
  
   if (validator.isEmpty(data.password)) {
-    errors.password = "Required password";
+    errors.password = "Le mot de passe  est requis";
     }
     
     if(!validator.equals(data.password,data.confirm))
     {
-     errors.confirm = "password not matches";
+     errors.confirm = "Le mot de passe ne correspond pas";
     }
 
  if (validator.isEmpty(data.confirm)) {
-    errors.confirm = "Required confirm";
+    errors.confirm = "La confirmation  est requis";
   }
 
 

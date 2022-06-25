@@ -6,6 +6,7 @@
 
 .parentContainer{
     width:100%;
+    display: flex;
 
 }
 
@@ -73,12 +74,14 @@ fill: white !important;;
 
 
 .detail>span:nth-child(2){
-    font-size: 22px;
+    font-size: 14px;
     font-weight: bold;
 }
 
 .detail>span:nth-child(3){
-    font-size: 12px;
+    font-size: 22px;
+    color:#e74c3c;
+    font-weight:bold
 }
 
 

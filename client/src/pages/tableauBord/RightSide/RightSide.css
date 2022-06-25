@@ -35,6 +35,30 @@
 
 }
 
+
+.on{
+    background-color: #7ed89a;
+    color:#fff
+}
+
+.on:hover{
+    background-color: #bcf0cd;
+    color:#fff
+}
+
+.off{
+    background-color: #e21c0d;
+    color:#fff
+}
+
+.off:hover{
+    background-color: #f5857f;
+    color:#fff
+}
+
+
+
+
 @media screen and (max-width:1200px) {
 
     .RightSide{

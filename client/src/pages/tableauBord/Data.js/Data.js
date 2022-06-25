@@ -10,26 +10,31 @@ import {
 export const SidebarData = [
     {
         icon: UilEstate,
-        heading:"Acceuil",
+        heading: "Acceuil",
+        link:"#"
     },
 
  {
         icon: UilTear,
-        heading:"Humidité de sol",
+     heading: "Humidité de sol",
+        link:"/dashHumSol"
     },
  
   {
         icon: UilTemperature,
-        heading:"Température de l'air",
+      heading: "Température de l'air",
+        link:"/dashTemp"
     },
   
    {
         icon: UilCloudSun ,
-        heading:"Humidité de l'air",
+       heading: "Humidité de l'air",
+        link:"/dashHum"
     },
     {
         icon: UilHistory ,
-        heading:"Historique de l'arrosage",
+        heading: "Historique de l'arrosage",
+        link:"/arrosages"
     },
 
 

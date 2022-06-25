@@ -156,7 +156,7 @@ const NewPostForm = () => {
 
                               ) : null}
 
-                              <button  className='send'onClick={handlePost}>Envoyer</button>
+                              <button  className='send' onClick={handlePost}>Envoyer</button>
 
                           </div>
                       </div>

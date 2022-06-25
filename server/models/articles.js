@@ -6,7 +6,8 @@ const articleSchema = new Schema({
     title:{ type :String , required:true},
     article:{ type :String , required:true},
     authorname:{type :String , required:true}
-});
+},
+{ timestamps: true});
 
 const Articles = mongoose.model("Articles",articleSchema);
 module.exports= Articles ;

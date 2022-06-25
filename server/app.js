@@ -9,7 +9,6 @@ const passport = require('passport')
 
 var userRouter = require('./routes/user.routes');
 var postRouter = require('./routes/post.routes');
-var zoneRouter = require('./routes/zone.routes');
 const articlesRouter=require('./routes/articles')
 const routeEmbauches = require('./routes/embauches.route')
 const materielsRouter=require('./routes/materiels')
@@ -51,7 +50,6 @@ app.use(express.static(path.join(__dirname, 'public')));
 //routes :
 app.use('/user', userRouter);
 app.use('/post', postRouter);
-app.use('/zone', zoneRouter);
 
 
 app.use('/api', articlesRouter);

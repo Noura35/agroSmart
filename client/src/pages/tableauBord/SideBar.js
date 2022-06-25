@@ -4,6 +4,7 @@ import { SidebarData } from './Data.js/Data';
 import  {UilSignOutAlt,UilBars} from '@iconscout/react-unicons';
 
 import  {motion} from 'framer-motion'
+import { Link } from 'react-router-dom';
 
 
 
@@ -51,20 +52,27 @@ const SideBar = () => {
                   {
                       SidebarData.map((item, index)=>{
                           return (
+                        
                               <div className={selected === index ? 'MenuItem active' : 'MenuItem'} key={index}
                                   onClick={() =>setSelected(index)}
                               >
-                                  <item.icon />
-                                  <span>{item.heading}</span>
+                                     <Link to={item.link} style={{textDecoration:"none"}}>
+                                     <item.icon />
+                                     <span>{item.heading}</span>
+                                     </Link>
                               </div>
+                            
+                              
                               
                         )
                       })}                     
               
-              <div className='MenuItem'>
-                  <UilSignOutAlt />
-
-              </div>
+                    <Link to="/">
+                    <div className='MenuItem'>
+                    <UilSignOutAlt />
+                    </div>
+                    </Link>
+                    
           </div>
       </motion.div>
       </>

@@ -1,18 +1,14 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react'
-import { useDispatch, useSelector } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import Inputs from '../../components/Inputs'
-import { getUser } from '../../redux/actions/user.action';
 
 function UpdateUser() {
- 
-  const [form, setForm] = useState({});
+   
+const [form, setForm] = useState({});
+  const {id} = useParams();
   const navigate = useNavigate()
   const [errors, setErrors] = useState({});
-  const user = useSelector(state => state.user);
-  const dispatch = useDispatch();
-
 
   const onChangeHandler = (e) => {
     setForm({
@@ -21,24 +17,27 @@ function UpdateUser() {
     });
     
   };
-  
-
-    useEffect(() => {
-       dispatch(getUser(user._id));
-      
-  });
 
   const onSubmitHandler = (e)=>{
     e.preventDefault();
-    axios.put(`user/profil/${user._id}`, form)
+    axios.put(`user/${id}`, form)
     .then(res=>{
       navigate('/admin')
     })
     .catch(err=>setErrors(err.response.data))
     
-    }
-    
+  }
 
+  useEffect(()=>{
+    async function fct (){
+      await axios.get(`user/${id}`)
+        .then((res) => {
+          setForm(res.data);
+        })
+    };
+      fct();
+    
+  }, []);
       
 
   return (
@@ -54,48 +53,53 @@ function UpdateUser() {
 
             
                   
-           <form onSubmit={onSubmitHandler} className="px-md-2">
-            <Inputs
-            placeholder="nom"
+           <form onSubmit={onSubmitHandler}>
+          <Inputs
             type="text"
             name="nom"
             onChangeHandler={onChangeHandler}
             errors={errors.nom}
-          />
+            value={form.nom}
+             />
+                    
+
+
           <Inputs
-            placeholder="prenom"
+
             type="text"
             name="prenom"
             onChangeHandler={onChangeHandler}
             errors={errors.prenom}
+            value={form.prenom}
           />
           <Inputs
-            placeholder="Email"
+
+
             type="text"
             name="email"
             onChangeHandler={onChangeHandler}
             errors={errors.email}
+            value={form.email}
           />
-         
           <Inputs
-            placeholder="role"
-            type="text"
+             type="text"
             name="role"
             onChangeHandler={onChangeHandler}
             errors={errors.role}
-          />
+            value={form.role}
+                    />
+     
             <Inputs
-            placeholder="bio"
-            type="text"
+             type="text"
             name="bio"
             onChangeHandler={onChangeHandler}
-            errors={errors.bio} />
+            errors={errors.bio}
+            value={form.bio}
+          />
                     
-                    <div  style={{ display: "flex",justifyContent:"center" }}>
-                        <button  type="submit" >Envoyer</button>
-                    </div>
+            <div  style={{ display: "flex",justifyContent:"center" }}> <button  type="submit" >Envoyer</button></div>
 
-                  </form> 
+            </form> 
 
           </div>
         </div>

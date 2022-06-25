@@ -36,7 +36,6 @@ const Login2 = () => {
                                
                     <div class="d-flex justify-content-between">
                     <button type="submit">Se connecter</button>
-                    <Link to="#">Mot de passe oublié ?</Link>
                     </div>
                         
                 </form>

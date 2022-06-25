@@ -1,21 +1,58 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./cards.css";
 import { CircularProgressbar } from "react-circular-progressbar";
 import "react-circular-progressbar/dist/styles.css";
 import { motion, AnimateSharedLayout } from "framer-motion";
 import { UilTimes } from "@iconscout/react-unicons";
 import Chart from "react-apexcharts";
+import axios from "axios";
+import moment from "moment";
 
 // parent Card
 
 const Card = (props) => {
   const [expanded, setExpanded] = useState(false);
+
+
+    const [time, setTime] = useState([]);
+
+
+
+    const fetchData = async () => {
+        const res = await axios.get('https://smartwaterring.herokuapp.com/sensors')
+        console.log("response", res.data);
+        
+
+        const time = [];
+
+        for (let i = 0; i < res.data.length; i++) {
+        
+          time.unshift(moment(res.data[i].date).format("LT"))
+          time.reverse()
+
+    }
+
+        setTime(time);
+       
+
+
+    }
+
+    useEffect(() => {
+        fetchData();
+},[])
+
+
+
+
+
+
   return (
     <AnimateSharedLayout>
       {expanded ? (
-        <ExpandedCard param={props} setExpanded={() => setExpanded(false)} />
+        <ExpandedCard param={props} time={time} setExpanded={() => setExpanded(false)} />
       ) : (
-        <CompactCard param={props} setExpanded={() => setExpanded(true)} />
+          <CompactCard param={props}  setExpanded={() => setExpanded(true)} />
       )}
     </AnimateSharedLayout>
   );
@@ -43,7 +80,6 @@ function CompactCard({ param, setExpanded }) {
       </div>
       <div className="detail">
         <Png />
-        <span >${param.value}</span>
         <span>Last 24 hours</span>
       </div>
     </motion.div>
@@ -51,7 +87,7 @@ function CompactCard({ param, setExpanded }) {
 }
 
 // Expanded Card
-function ExpandedCard({ param, setExpanded }) {
+function ExpandedCard({ param, setExpanded ,time}) {
   const data = {
     options: {
       chart: {
@@ -89,16 +125,7 @@ function ExpandedCard({ param, setExpanded }) {
         show: true,
       },
       xaxis: {
-        type: "datetime",
-        categories: [
-          "2018-09-19T00:00:00.000Z",
-          "2018-09-19T01:30:00.000Z",
-          "2018-09-19T02:30:00.000Z",
-          "2018-09-19T03:30:00.000Z",
-          "2018-09-19T04:30:00.000Z",
-          "2018-09-19T05:30:00.000Z",
-          "2018-09-19T06:30:00.000Z",
-        ],
+        categories:time,
       },
     },
   };

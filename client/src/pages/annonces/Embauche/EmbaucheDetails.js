@@ -1,35 +1,40 @@
 import React from 'react'
 import { MDBCard, MDBCardBody, MDBCardTitle, MDBCardText, MDBCol } from 'mdb-react-ui-kit';
-import { Button } from 'react-bootstrap'
+import"./Embauche.css"
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
 
  function EmbaucheDetails( {NomEmb,VilleEmb,Competences,Contact,Id ,OnDelete,user}) {
   const [embauches,setEmbauches]= useState([]);
   return (
-    <MDBCol  style={{ width:"33%",textAlign:'center',padding:"10px",margin:"60px"}}>
-    <MDBCard className='h-100'style={{ backgroundImage:"linear-gradient(180deg, #096bad, #96c1de)", boxShadow: "0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)"}} >
+    <MDBCol  style={{ width:"33%",textAlign:'center',padding:"10px",margin:"70px"}}>
+    <MDBCard  id="h-100" className='h-100'style={{color:"#FFFFF0" , boxShadow: "0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)"}} >
      
       <MDBCardBody >
 
-      <MDBCardTitle style={{fontSize:"16px",color:"white"}}>
-         Nous recrutons un 
-        </MDBCardTitle>
+     
 
-        <MDBCardTitle style={{margin:"20px 10px 70px 10px" ,color:"white" }}> {NomEmb} </MDBCardTitle>
+        <MDBCardTitle style={{margin:"20px 10px 30px 10px" ,color:"#3990ff",padding:"14px",borderTop:"1px solid #5e88a0",borderBottom:"1px solid #5e88a0" }}>Nous cherchons un(e) {NomEmb} </MDBCardTitle>
         
-        <MDBCardText style={{color:"white"}}>
-         Nous sommes situé à: {VilleEmb}
+        <MDBCardText  >
+         Nous sommes situé à :
+        </MDBCardText>
+        <MDBCardText  style={{fontWeight:"bold"}}>
+        {VilleEmb}
         </MDBCardText>
 
-        <MDBCardText  style={{margin:"40px 10px 20px 10px",color:"white"}}>
-         Nous sommes à la recherche d'un employé qui est  :{Competences}
+        <MDBCardText  style={{margin:"40px 10px 20px 10px"}}>
+        Cet employé {Competences}
         </MDBCardText>
 
-        <MDBCardText  style={{margin:"40px 10px 20px 10px",color:"white"}}>
-          Si vous étes interessés,vous pouvez nous contacter sur le numéro :{Contact}
+      <MDBCardText >
+          Si vous étes interessés,vous pouvez nous contacter sur le numéro 
         </MDBCardText>
-          <hr style={{ color: "white" }}></hr>
+
+        <MDBCardText  style={{fontWeight:"bold"}}>
+          {Contact}
+        </MDBCardText>
+          <hr style={{ color: "#5e88a0" }}></hr>
           
 
           {user.isConnected ? ( <div  style={{ display: "flex",justifyContent:"center" }}>

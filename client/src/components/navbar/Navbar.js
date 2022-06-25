@@ -43,7 +43,7 @@ const Navigation = ({ user }) => {
               <div className="class">
                 <NavDropdown title={<span id="class1">Annonces</span>} id="nav-dropdow" >
                 <NavDropdown.Item href="/materiels">Equipments</NavDropdown.Item>
-                <NavDropdown.Item href="/embauche">Embauche</NavDropdown.Item>
+                <NavDropdown.Item href="/annonces">Embauche</NavDropdown.Item>
               </NavDropdown>
               </div>
               <Nav.Link href="/contact"><div className="class">Contactez-nous</div></Nav.Link> 

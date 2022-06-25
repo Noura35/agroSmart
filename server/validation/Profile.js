@@ -11,22 +11,22 @@ module.exports = function ValidateProfile(data) {
  data.email = !isEmpty(data.email) ? data.email : "";
 
   if (validator.isEmpty(data.nom)) {
-    errors.nom = "nom requis";
+    errors.nom = "Le nom est requis";
     }
  if (validator.isEmpty(data.prenom)) {
-    errors.prenom = "prenom requis";
+    errors.prenom = "Le prenom est requis";
   }
 
      if (validator.isEmpty(data.role)) {
-    errors.role = "role requis";
+    errors.role = "Le role est requis";
   }
  
   if (validator.isEmpty(data.bio)) {
-    errors.bio = "bio requis";
+    errors.bio = "Le bio est requis";
   }
  
    if (validator.isEmpty(data.email)) {
-    errors.email = "addresse requis";
+    errors.email = "L'addresse est requis";
   }
   return {
       errors,

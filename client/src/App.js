@@ -9,7 +9,6 @@ import Admin from './pages/admin/Admin';
 import Profile from './pages/profile/Profile';
 import NoAccess from './pages/notAccess/NoAccess';
 import NotFound from './pages/notAccess/NotFound'
-import Irrigation from './pages/irrigation/Irrigation';
 import TableauBord from './pages/tableauBord/TableauBord';
 import Actualite from './pages/actualites/Actualite';
 
@@ -51,7 +50,11 @@ import UpdateUser from './pages/admin/UpdateUser';
 import Trending from './pages/actualites/Trending';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
+import DashTemp from './pages/tableauBord/DashTemp';
 
+import DashHum from './pages/tableauBord/DashHum';
+import DashHumSol from './pages/tableauBord/DashHumSol';
+import Arrosage from './pages/tableauBord/Arrosage';
 
 
 
@@ -91,15 +94,15 @@ axios
 
 
   //materiels
-  
   const [cards,setCards]=useState([]);
   useEffect(()=> {
   axios
-  .get("/api/materiels")
+  .get("/api/")
   .then(res =>setCards(res.data))
   .catch(error => console.log(error));
   
     }, []);
+    
 
  
   return (
@@ -132,13 +135,6 @@ axios
          <AdminRouter user={user}>
          <Admin />
          </AdminRouter>} />
-
-
-        <Route path="/irrigation" element={
-          <PrivateRouter user={user}>
-             <Irrigation />
-          </PrivateRouter>
-         } />
       
         
         <Route path="/contact" element={ <Contact /> } />
@@ -183,7 +179,7 @@ axios
 
         {/* profil */}
 
-        <Route path="/profil/:id" element={<UpdateUser />} />
+        <Route path="/:id" element={<UpdateUser />} />
 
         {/* end profil */}
 
@@ -236,7 +232,40 @@ axios
         
     {/* end materiels */}
     
+   <Route path="/dashTemp"  element={          
+        <PrivateRouter user={user} >
+        <DashTemp />
+       </PrivateRouter>
 
+        } />
+        
+
+
+
+       <Route path="/dashHum"  element={          
+        <PrivateRouter user={user} >
+        <DashHum />
+       </PrivateRouter>
+
+        }/>
+
+
+
+       <Route path="/dashHumSol"  element={          
+        <PrivateRouter user={user} >
+        <DashHumSol />
+       </PrivateRouter>
+
+        } />
+        
+        <Route path="/arrosages"  element={          
+        <PrivateRouter user={user} >
+        <Arrosage />
+       </PrivateRouter>
+
+        }/>
+
+    
 
       </Routes>
       <Footer />

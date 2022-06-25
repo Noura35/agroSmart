@@ -60,7 +60,6 @@ export const updateBio = (userId, bio) => {
 
 
 
-
 export const DeleteUser = (id)=>dispatch=>{
    if(window.confirm("are you sure to delete this user?")){
     axios

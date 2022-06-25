@@ -13,9 +13,7 @@ const TableauBord = () => {
         <MainDash/>
         <RightSide/>
       </div>
-      <div id="temperature"></div>
-      <div id="humidity"></div>
-
+     
       </div>
     </div>
   )

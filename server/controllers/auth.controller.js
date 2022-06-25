@@ -41,22 +41,22 @@ module.exports.signIn = async (req, res) => {
        UserModel.findOne({ email: req.body.email })
       .then((user) => {
         if (!user) {
-         errors.email="not found user"
+         errors.email="L'utilisateur n'existe pas"
         res.status(404).json(errors)
         } else {
 
           bcrypt.compare(req.body.password,user.password)
             .then((isMatch) => {
               if (!isMatch) {
-                errors.password = 'incorrect password';
+                errors.password = 'Le mot de passe est incorrect ! ';
                 res.status(404).json(errors)
               } else {
                 var token = jwt.sign({ // return jwt_payload
-                  id: user._id,
-                  nom: user.nom,
-                  prenom: user.prenom,
-                  email: user.email,
-                  role:user.role,
+                      id: user._id,
+                      nom: user.nom,
+                      prenom: user.prenom,
+                      email: user.email,
+                      role:user.role,
                    
                 }, process.env.PRIVATE_KEY,{expiresIn:'1h'});
                   res.status(200).json({

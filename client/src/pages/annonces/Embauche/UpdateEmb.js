@@ -30,7 +30,7 @@ function UpdateEmb () {
         e.preventDefault();
         axios.put(`/api/embauches/cardembauche/${id}`, form)
             .then(res => {
-                navigate('/cardembauche')
+                navigate('/annonces')
             })
             .catch(err => setErrors(err.response.data))
 

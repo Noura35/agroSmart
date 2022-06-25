@@ -50,8 +50,7 @@ function Login () {
 
                                
                             <div class="d-flex justify-content-between">
-                            <button type="submit">Se connecter</button>
-                            <Link to="#">Mot de passe oublié ?</Link>
+                          <button type="submit">Se connecter</button>
                             </div>
                         
                             </form>

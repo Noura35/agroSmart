@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Button, Form } from 'react-bootstrap';
 import blogimak from '../../images/gros.webp'
 import axios from "axios";
+import { Navigate, useNavigate } from "react-router-dom";
 
 
 function AddMateriel() {
@@ -13,6 +14,10 @@ function AddMateriel() {
     const [tel,setTel]=useState("");
     const [fileName,setFileName]=useState({});
     const [message,setMessage]=useState("");
+    const [validated, setValidated] = useState(false);
+    const[errors,setErrors]=useState({})
+    const navigate = useNavigate();
+
 
 
     const OnChangeFile = (e)=> {
@@ -26,35 +31,40 @@ function AddMateriel() {
    formData.append("prix",prix);
    formData.append("description",description);
    formData.append("tel",tel);
-   formData.append("materielImage",fileName);
+   formData.append("file",fileName);
    
     setNom("");
     setPrix("");
     setDescription("");
     setTel("");
     axios
-    .post('/api/materiels',formData)
-    .then(res=>setMessage(res.data))
-    .catch(err=>{
-      console.log(err);
-    });
+    .post("/api/",formData)
+    .then(res=>{
+      setMessage(res.data)
+      navigate("/materiels")
+    }
+      )
+      .catch(err=>setErrors(err.response.data))
+      setValidated(true);
+    
+    
   };
 
 
   return (
-    <div className="containerss" style={{ background: `url(${blogimak})`, backgroundSize: "cover", padding: "5px", opacity: ".7" }} >
+    <div className="containerss" style={{ background: `url(${blogimak})`, backgroundSize: "cover", padding: "5px", opacity: ".9" }} >
       <div className="row">
         <div className="col">
         <p className="message" style={{marginTop:"0px",marginLeft:"22px" ,color:"black" , padding:"10px"}}>{message}</p>
 
-          <Form className="emb"  style={{ marginTop: "150px", backgroundColor: "white", border: "solid green", borderRadius: "25px", opacity: "0.9" }}  onSubmit={changeOnClick} encType="multipart/form-data">
+          <Form className="emb" noValidate validated={validated} style={{ marginTop: "150px", backgroundColor: "white", border: "solid green", borderRadius: "25px", opacity: "0.9" }}  onSubmit={changeOnClick} encType="multipart/form-data">
 
             <Form.Group className="mb-3" controlId="formBasicEmail">
               <Form.Control type="file" filename="materielImage" className="form-control-file" onChange={OnChangeFile}  style={{ border: " 3px solid #def8ca" }} />
-              <Form.Control.Feedback type="invalid"></Form.Control.Feedback>
+              <Form.Control.Feedback type="invalid">required Image</Form.Control.Feedback>
             </Form.Group>
 
-            <Form.Group className="mb-3" controlId="formBasicPassword">
+            <Form.Group className="mb-3" controlId="formBasicPassword" hasValidation>
               <Form.Control type="text" placeholder="Nom d'équipement" name="Nomeq" style={{ border: " 3px solid #def8ca" }} onChange={e=>setNom(e.target.value)}rerquired />
               <Form.Control.Feedback type="invalid"></Form.Control.Feedback>
             </Form.Group>
