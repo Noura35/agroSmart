@@ -74,3 +74,26 @@ padding-right: 25px;
 opacity: 1;
 right: 0;
 }
+
+
+
+
+
+#cont3{
+box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+}
+#cont3:hover{
+box-shadow: none;
+border-bottom: 3px solid #4b7bec;
+
+}
+
+#title3{
+
+  font-family: 'Arial Narrow', Arial, sans-serif;
+  font-size: 20px;
+  font-weight: bold;
+  color:#4b7bec;
+  text-transform: uppercase;
+
+}

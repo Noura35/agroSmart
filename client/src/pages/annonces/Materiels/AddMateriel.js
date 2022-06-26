@@ -93,7 +93,7 @@ function AddMateriel() {
             </Form.Group>
                     
               <div style={{ display: "flex", justifyContent: "center" }}>
-              <button  className='btn5' type="Submit" >Envoyer</button>
+              <button  className='btn5' type="Submit" >Ajouter</button>
               <button  className='btn4' type="reset">Annuler</button>
             </div>                              
           </Form>

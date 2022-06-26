@@ -1,10 +1,11 @@
 import React from 'react';
 import axios from 'axios';
-import { Button, Form } from 'react-bootstrap';
+import { Form } from 'react-bootstrap';
 import { useEffect } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { useState } from 'react';
-import blogimak from '../../images/travail.jpg';
+import  embauche from '../../images/agriculteur.webp'
+import '../../../App.css'
 import "./Embauche.css";
 
 function UpdateEmb () {
@@ -43,12 +44,19 @@ function UpdateEmb () {
     }, []);
 
     return (
-        <div style={{ background: `url(${blogimak})`, backgroundSize: "cover", padding: "5px", opacity: ".8" }}>
-            <div class="alert alert-success" role="alert" style={{ display: show ? "block" : "none", marginTop: "100px" }}>
-                {message}
-            </div>
+  <section className="container " >
+   <div class="alert alert-success" role="alert"  style={{display:show? "block":"none" , marginTop:"100px"}}>
+  {message}
+  </div>
+    <div className="h-100 h-custom" style={{margin:"100px 0"}}>
+    <div className="container py-5 h-100" >
+    <div className="row d-flex justify-content-center align-items-center h-100 " >
+      <div className="col-lg-8 col-xl-6" >
+        <div className="card rounded-3" id="cont1">
+        <img src={embauche} className="w-100" style={{ borderTopLeftRadius: " .3rem", borderTopRightRadius: " .3rem",height:"280px"}} alt="Sample photo"/>
+        <div className="card-body p-4 p-md-5">
 
-            <Form className="emb" noValidate validated={validated} onSubmit={onSubmitHandler} style={{ marginTop: "150px", backgroundColor: "white", border: "solid green", borderRadius: "25px", opacity: "0.9" }}>
+              <Form noValidate validated={validated} onSubmit={onSubmitHandler} >
 
                 <Form.Group className="mb-3" controlId="formBasicEmail">
                     <Form.Control type="text" placeholder="Nom de poste" name="NomEmb" value={form.NomEmb} onChange={onChangeHandler} required />
@@ -71,11 +79,20 @@ function UpdateEmb () {
                 </Form.Group>
 
                 <div style={{ display: "flex", justifyContent: "center" }}>
-                    <Button variant="primary" className='btn2' type="Submit">Envoyer</Button>
-                    <Button variant="danger" className='btn3'>Annuler</Button>
+                    <button type="Submit">Modifier</button>
+                    <button  className='btn4' type='reset'>Annuler</button>
                 </div>
             </Form>
+
+          </div>
         </div>
+      </div>
+    </div>
+  </div>
+</div> 
+   
+</section>
+
 
     );
 }

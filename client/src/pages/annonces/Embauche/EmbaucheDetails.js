@@ -39,9 +39,9 @@ import { useState } from 'react';
 
           {user.isConnected ? ( <div  style={{ display: "flex",justifyContent:"center" }}>
         <Link to ={`/updateemb/${Id}`} >
-    <button     className='btn btn-outline-success' type="submit" style={{ width: "max-content" }}>Modifier</button>
+    <button     className='btn btn-outline-success' type="submit" style={{ width: "max-content", borderRadius:"20px" }}>Modifier</button>
     </Link>
-    <button  className='btn btn-outline-danger' style={{ width: "max-content" }} type="reset" onClick={()=>OnDelete(Id)}>Supprimer</button>
+    <button  className='btn btn-outline-danger' style={{ width: "max-content", borderRadius:"20px" }} type="reset" onClick={()=>OnDelete(Id)}>Supprimer</button>
     </div>) : " "}
        
       

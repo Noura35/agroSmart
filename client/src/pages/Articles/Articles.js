@@ -39,20 +39,14 @@ const Articles = ({ posts,user }) => {
                         <p style={{ overflow: "hidden",textOverflow:"ellipsis",display:"-webkit-box",WebkitLineClamp:"4", WebkitBoxOrient: "vertical"}}>{article.article}</p>
                         <span className="badge bg-secondary p-2" style={{marginTop:"20px"}}> by {article.authorname}</span>
                         <span><i style={{marginLeft:"670px",fontSize:"13px"}}>{dateParser(article.createdAt)}</i></span>
-
-            {
-  
-                user.role === 'ADMIN' ? (  <div className='row my-5' >
-                            <div className='col'>
-                                <Link to= {`/articles/${article._id}`} className='btn5' style={{ width: "max-content"}} > Edit Article</Link>
-                            </div>
-
-
-                            <div className='col'>
-                                <Link to="#" className='btn4' style={{ width: "max-content",marginLeft:"-300px",color:"#e74c3c" }}  onClick={() => Deletearticle (article._id)}> Delete Article</Link>
-                            </div>
-                        </div>) : ""
-              }                       
+                    
+                        
+                            {  user.role === 'ADMIN'? ( <div  style={{ display: "flex" ,margin:"30px 0"}}>
+                            <Link to= {`/articles/${article._id}`} >
+                            <button     className='btn btn-outline-success' type="submit" style={{ width: "max-content", borderRadius:"20px" }}>Modifier</button>
+                            </Link>
+                            <button  className='btn btn-outline-danger' style={{ width: "max-content", borderRadius:"20px" }} type="reset"  onClick={() => Deletearticle (article._id)}>Supprimer</button>
+                            </div>) : " "}
                       
                         <hr></hr>
                     </div>

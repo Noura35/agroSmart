@@ -51,10 +51,9 @@ function EditMateriel(props) {
         };
         axios
   .put(`/api/${id}`,materiels)
-  .then(res=>
-    {setMessage(res.data)
+   .then(res => {
       navigate('/materiels')
-    })
+       })
   .catch(err=>{
     console.log(err);
   });
@@ -79,10 +78,9 @@ useEffect(() => {
     <div className="container py-5 h-100" >
     <div className="row d-flex justify-content-center align-items-center h-100 " >
       <div className="col-lg-8 col-xl-6" >
-        <div className="card rounded-3" id="cont2">
+        <div className="card rounded-3" id="cont1">
           <img src={tracture} className="w-100 h-100" style={{ borderTopLeftRadius: " .3rem", borderTopRightRadius: " .3rem"}} alt="Sample photo"/>
           <div className="card-body p-4 p-md-5">
-            <h3 className="mb-4 pb-2 pb-md-0 mb-md-5 px-md-2" id="title2">Cher Agriculteur !</h3>
 
                   
           <Form  onSubmit={changeOnClick} encType="multipart/form-data">
@@ -110,7 +108,7 @@ useEffect(() => {
           </Form.Group>
 
              <div style={{ display: "flex", justifyContent: "center" }}>
-              <button  className='btn5' type="Submit" >Envoyer</button>
+              <button  type="Submit" >Modifier</button>
               <button  className='btn4' type="reset">Annuler</button>
             </div> 
 

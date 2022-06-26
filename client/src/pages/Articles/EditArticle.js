@@ -2,10 +2,10 @@ import React from 'react';
 import axios from 'axios';
 import { useState } from 'react';
 import { Button, Form } from 'react-bootstrap';
-import blog from '../images/blogging_picture.svg';
 import { useEffect } from 'react';
-import { useParams } from 'react-router-dom';
-
+import { useNavigate, useParams } from 'react-router-dom';
+import  blog from '../images/blog.gif'
+import '../../App.css'
 
 
 
@@ -16,7 +16,8 @@ function EditArticle(props) {
   const [article,setArticle]=useState("");
   const [authorname,setAuthorname]=useState("");
   const [message, setMessage] = useState("");
-  
+    const navigate = useNavigate();
+
   
 
   let { id } = useParams();
@@ -30,8 +31,10 @@ const changeOnClick = e=>{
   };
   axios
   .put(`/api/articles/${id}`,articles)
-  .then(res=>setMessage(res.data))
-  .catch(err=>{
+ .then(res => {
+         navigate('/articles')
+ })
+    .catch(err => {
     console.log(err);
   });
 };
@@ -49,17 +52,20 @@ useEffect(() => {
 
 
   return (
-    <div>
-      <div className="container"  >
-        <div>
-        <h1 style={{ marginTop: "120px", color: "black" }}>MODIFIER VOTRE BLOG</h1>
-        <h5 style={{marginTop:"10px" , marginLeft:"22px" , color:"#6dc068"}}>Cultivons nos données comme notre terre !</h5>
-        </div>
-        
-      
-          <p className="message " style={{marginTop:"30px",marginLeft:"22px" ,color:"red" , padding:"10px"}}>{message}</p>
+<section className="container " >
+   <div class="alert alert-success" role="alert"  >
+  {message}
+  </div>
+    <div className="h-100 h-custom" style={{margin:"100px 0"}}>
+    <div className="container py-5 h-100" >
+    <div className="row d-flex justify-content-center align-items-center h-100 " >
+      <div className="col-lg-8 col-xl-6" >
+        <div className="card rounded-3" id="cont1">
+        <img src={blog} className="w-100" style={{ borderTopLeftRadius: " .3rem", borderTopRightRadius: " .3rem",height:"280px"}} alt="Sample photo"/>
+        <div className="card-body p-4 p-md-5">
+         <h3 className="mb-4 pb-2 pb-md-0 mb-md-5 px-md-2" id="title">MODIFIER VOTRE BLOG</h3>
 
-            <Form  className="emb"  style={{ marginTop: "80px",textAlign:'center', padding: "40px", border: "solid #b6e0b4", borderRadius: "25px" }} onSubmit={changeOnClick} encType="multipart/form-data">
+              <Form  onSubmit={changeOnClick} encType="multipart/form-data">
                
 
               <Form.Group className="mb-4" hasValidation>
@@ -77,14 +83,21 @@ useEffect(() => {
                 <Form.Control.Feedback type="invalid"></Form.Control.Feedback>
               </Form.Group>
 
-              <div style={{ display: "flex", justifyContent: "center" }}>
-                <Button variant="primary" className='btn2' type="submit">Poster</Button>
-                <Button variant="danger" className='btn3' type="reset">Annuler</Button>
-              </div>
+                 <div style={{ display: "flex", justifyContent: "center" }}>
+                    <button  type="Submit">Modifier</button>
+                    <button  className='btn4' type='reset'>Annuler</button>
+                </div>
             </Form>
+
           </div>
-          
-          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div> 
+   
+</section>
+
        
   );
 }

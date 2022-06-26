@@ -3,7 +3,8 @@ import React from 'react';
 import { useState } from 'react';
 import { Button, Form } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
-
+import  blog from '../images/blog.gif'
+import '../../App.css'
 
 const AddArticle = () => {
 
@@ -35,19 +36,24 @@ const AddArticle = () => {
       setValidated(true);
   };
   return (
-    <div>
-      <div className="container"  >
-        <div>
-          <h1 style={{ marginTop: "140px", color: "black" }}>CREER VOTRE BLOG</h1>
-          <h5 style={{ marginTop: "10px", marginLeft: "22px", color: "#6dc068" }}>Cultivons nos données comme notre terre !</h5>
-        </div>
+  
+ <section className="container " >
+   <div class="alert alert-success" role="alert"  >
+  {message}
+  </div>
+    <div className="h-100 h-custom" style={{margin:"100px 0"}}>
+    <div className="container py-5 h-100" >
+    <div className="row d-flex justify-content-center align-items-center h-100 " >
+      <div className="col-lg-8 col-xl-6" >
+        <div className="card rounded-3" id="cont1">
+        <img src={blog} className="w-100" style={{ borderTopLeftRadius: " .3rem", borderTopRightRadius: " .3rem",height:"280px"}} alt="Sample photo"/>
+        <div className="card-body p-4 p-md-5">
 
+         <h3 className="mb-4 pb-2 pb-md-0 mb-md-5 px-md-2" id="title">CREER VOTRE BLOG</h3>
 
+         <p className="mb-4 pb-2 pb-md-0 mb-md-5 px-md-2" style={{fontSize:"13px",marginTop:"-30px"}}>Cultivons nos données comme notre terre !</p>
 
-
-        <p className="message  " style={{ marginTop: "30px", marginLeft: "22px", color: "success", padding: "10px" }}>{message}</p>
-
-        <Form  className="emb" noValidate validated={validated} style={{ marginTop: "80px",textAlign:'center', padding: "40px", border: "solid #b6e0b4", borderRadius: "25px" }} onSubmit={changeOnClick} encType="multipart/form-data">
+       <Form noValidate validated={validated} onSubmit={changeOnClick} encType="multipart/form-data">
 
           <Form.Group className="mb-4" hasValidation>
             <Form.Control type="text" placeholder="Nom d'éditeur" htmlFor="authorname" style={{ border: " 3px solid c9ecf8" }} onChange={e => setAuthorname(e.target.value)} required />
@@ -65,17 +71,19 @@ const AddArticle = () => {
           </Form.Group>
 
           <div style={{ display: "flex", justifyContent: "center" }}>
-            <Button variant="primary" className='btn2' type="submit">Poster</Button>
-            <Button variant="danger" className='btn3' type="reset">Annuler</Button>
+            <button  className='btn5' type="submit">Poster</button>
+            <button className='btn4' type="reset">Annuler</button>
           </div>
         </Form>
 
-
-
-
+          </div>
+        </div>
       </div>
-
     </div>
+  </div>
+</div> 
+   
+</section>
 
   );
 }

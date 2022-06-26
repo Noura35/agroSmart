@@ -1,9 +1,10 @@
 import axios from "axios";
 import React from "react";
 import { useState } from "react";
-import { Button,Form}from 'react-bootstrap';
+import {Form}from 'react-bootstrap';
 import "./Embauche.css";
-import blogimak from '../../images/travail.jpg'
+import  tracture from '../../images/agriculteur.webp'
+import '../../../App.css'
 
 function Embauche () {
   const[form , setForm]=useState({})
@@ -34,13 +35,20 @@ const onSubmitHandler =(e)=>{
   setValidated(true);
 }
     return (
-      
-      <div  style={{ background: `url(${blogimak})`, backgroundSize: "cover", padding: "5px", opacity: ".8" }}>
-        <div class="alert alert-success" role="alert"  style={{display:show? "block":"none" , marginTop:"100px"}}>
+      <section className="container " >
+             <div class="alert alert-success" role="alert"  style={{display:show? "block":"none" , marginTop:"100px"}}>
   {message}
   </div>
-     
-<Form className="emb" noValidate validated={validated} onSubmit={onSubmitHandler} style={{ marginTop: "150px", backgroundColor: "white", border: "solid green", borderRadius: "25px", opacity: "0.9" }}>
+    <div className="h-100 h-custom" style={{margin:"100px 0"}}>
+    <div className="container py-5 h-100" >
+    <div className="row d-flex justify-content-center align-items-center h-100 " >
+      <div className="col-lg-8 col-xl-6" >
+        <div className="card rounded-3" id="cont3">
+          <img src={tracture} className="w-100" style={{ borderTopLeftRadius: " .3rem", borderTopRightRadius: " .3rem",height:"280px"}} alt="Sample photo"/>
+          <div className="card-body p-4 p-md-5">
+            <h3 className="mb-4 pb-2 pb-md-0 mb-md-5 px-md-2" id="title3">Bienvenue !</h3>
+
+<Form noValidate validated={validated} onSubmit={onSubmitHandler} >
  
   <Form.Group className="mb-3" controlId="formBasicEmail">
  <Form.Control type="text" placeholder="Nom de poste"  name="NomEmb"  onChange={onChangeHandler} required/>
@@ -63,11 +71,22 @@ const onSubmitHandler =(e)=>{
   </Form.Group>
 
   <div  style={{ display: "flex",justifyContent:"center" }}>
-  <Button  variant="primary"  className='btn2' type="Submit">Envoyer</Button>
-  <Button   variant="danger"  className='btn3'>Annuler</Button>
+  <button   className='btn5' type="Submit">Envoyer</button>
+  <button    className='btn4' type="reset">Annuler</button>
   </div>
 </Form>
-</div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div> 
+   
+</section>
+
+
+
 
     );
 }

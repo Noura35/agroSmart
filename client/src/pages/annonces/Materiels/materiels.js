@@ -58,7 +58,7 @@ const Materiels = ({ cards, user }) => {
                     />
                     <Carousel.Caption className='d-flex h-100 align-items-center justify-content-center' >
                         <div style={{ display: "center", justifyContent: "center", backgroundColor: "white", opacity: "0.7",marginTop:"100px" }} >
-                            <h1 style={{ color: "#f1c40f", fontFamily: "satisfy",fontWeight: "bold",margin:"20px" }}>Louer son materiel agricole, bien plus qu'un enjeu économique </h1>
+                            <h1 style={{ color: "#778ca3", fontFamily: "satisfy",fontWeight: "bold",margin:"20px" }}>Louer son materiel agricole, bien plus qu'un enjeu économique </h1>
                             <Link to={"/addmateriel"}>
                                 <button type="button" className="btn btn-success" style={{ width: "max-content", margin: "20px auto" }}><span>Poster votre materiel</span></button>
                             </Link>
@@ -75,7 +75,7 @@ const Materiels = ({ cards, user }) => {
                     />
                     <Carousel.Caption className='d-flex h-100 align-items-center justify-content-center'>
                         <div style={{ display: "center", justifyContent: "center", backgroundColor: "white", opacity: "0.7",marginTop:"100px"}}>
-                            <h1 style={{  color: "#f1c40f", fontFamily: "satisfy", fontWeight: "bold" ,margin:"20px"}}>Louer son materiel agricole, bien plus qu'un enjeu économique </h1>
+                            <h1 style={{  color: "#778ca3", fontFamily: "satisfy", fontWeight: "bold" ,margin:"20px"}}>Louer son materiel agricole, bien plus qu'un enjeu économique </h1>
                             <Link to={"/addmateriel"}>
                                 <button type="button" className="btn btn-success" style={{ width: "max-content", margin: "20px auto" }}><span>Poster votre materiel</span></button>
                             </Link>
@@ -91,7 +91,7 @@ const Materiels = ({ cards, user }) => {
                     />
                     <Carousel.Caption className='d-flex h-100 align-items-center justify-content-center'>
                         <div style={{ display: "center", justifyContent: "center", backgroundColor: "white", opacity: "0.7",marginTop:"100px"}}>
-                            <h1 style={{ color: "#f1c40f", fontFamily: "satisfy", fontWeight: "bold" ,margin:"20px"}}>Louer son materiel agricole, bien plus qu'un enjeu économique </h1>
+                            <h1 style={{ color: "#778ca3", fontFamily: "satisfy", fontWeight: "bold" ,margin:"20px"}}>Louer son materiel agricole, bien plus qu'un enjeu économique </h1>
                             <Link to={"/addmateriel"}>
                                 <button type="button" className="btn btn-success" style={{ width: "max-content", margin: "20px auto" }}><span>Poster votre materiel</span></button>
                             </Link>
@@ -107,7 +107,7 @@ const Materiels = ({ cards, user }) => {
                     />
                     <Carousel.Caption className='d-flex h-100 align-items-center justify-content-center'>
                         <div style={{ display: "center", justifyContent: "center", backgroundColor: "white", opacity: "0.7",marginTop:"100px"}}>
-                            <h1 style={{ color: "#f1c40f", fontFamily: "satisfy", fontWeight: "bold",margin:"20px" }}>Louer son materiel agricole, bien plus qu'un enjeu économique </h1>
+                            <h1 style={{ color: "#778ca3", fontFamily: "satisfy", fontWeight: "bold",margin:"20px" }}>Louer son materiel agricole, bien plus qu'un enjeu économique </h1>
                             <Link to={"/addmateriel"}>
                                 <button type="button" className="btn btn-success" style={{ width: "max-content", margin: "20px auto" }}><span>Poster votre materiel</span></button>
                             </Link>
@@ -122,11 +122,11 @@ const Materiels = ({ cards, user }) => {
                 <div className='mat' >
 
                 <div>
-                <h2 style={{ marginTop: "20px", color: "#c46203" , fontSize:"40px",fontFamily: "satisfy"}}> Location d'equipements</h2>
+                <h2 style={{ marginTop: "20px", color: "#2c3e50" , fontSize:"40px",fontFamily: "satisfy"}}> Location d'equipements</h2>
                 </div>
-                <h3 style={{ marginTop: "30px" , color:"#e58e26",fontFamily:"cursive",fontSize: "25px"}}>Choisissez la location d’outils pour réaliser des économies</h3>
+                <h3 style={{ marginTop: "30px" , color:"#7f8c8d",fontFamily:"cursive",fontSize: "25px"}}>Choisissez la location d’outils pour réaliser des économies</h3>
                 <p style={{ marginTop: "20px" }}>La location d’un outil et de tout autre équipement peut s’avérer un choix judicieux pour la réalisation de votre projet. La location d’une scie à chaîne, d’une souffleuse, d’une perceuse à percussion ou d’autres items dont vous ne vous servirez qu’à de rares occasions peut vous faire économiser plusieurs centaines de dinares. Vous éviterez l’achat de l’outil, mais aussi les coûts liés à son entretien.</p>
-                <h3  style={{ marginTop: "30px" , color:"#e58e26",fontFamily:"cursive",fontSize: "25px"}}>Nous vous louons tout ce qu’il vous avez besoin…</h3>
+                <h3  style={{ marginTop: "30px" , color:"#7f8c8d",fontFamily:"cursive",fontSize: "25px"}}>Nous vous louons tout ce qu’il vous avez besoin…</h3>
                 <p style={{ marginTop: "20px" }}>Que ce soit pour l'agriculture,le récoltes, le jardinage, nous avons les outils qu’il vous faut pour tous genres de travaux. Nous offrons également un grand choix d’équipements pour vos réceptions de tout genre.</p>
                 </div>
             </div>
@@ -160,18 +160,18 @@ const Materiels = ({ cards, user }) => {
 
                                         {user.isConnected ? (
                                                 <div style={{marginLeft:"35px"}}>
-                                                <Link to={`/materiels/${materiel._id}`} onClick={Deletemateriel} style={{marginRight:"20px"}}>
+                                                <a href={`/materiels/${materiel._id}`}  style={{marginRight:"20px"}}>
                                                 <IconContext.Provider value={{ size: 22, color:"#b2bec3"}}>
                                                 <FiEdit />
                                                 </IconContext.Provider>
-                                                 </Link>                                                                          
+                                                 </a>                                                                          
 
 
-                                                <Link to="#" style={{ marginRight: "20px" }}>
+                                                <a href="#" style={{ marginRight: "20px" }} onClick={() => Deletemateriel(materiel._id)}>
                                                 <IconContext.Provider value={{ size: 25, color:"#e74c3c"}}>
                                                 <RiDeleteBin5Line />
                                                 </IconContext.Provider>
-                                                </Link>
+                                                </a>
                                                 </div>
                                               
 
