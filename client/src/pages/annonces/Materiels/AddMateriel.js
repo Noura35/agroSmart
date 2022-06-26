@@ -17,6 +17,7 @@ function AddMateriel() {
     const [validated, setValidated] = useState(false);
     const[errors,setErrors]=useState({})
     const navigate = useNavigate();
+    const[show,setShow]=useState(false)
 
 
 
@@ -40,12 +41,14 @@ function AddMateriel() {
     axios
     .post("/api/",formData)
     .then(res=>{
-      setMessage(res.data)
-      navigate("/materiels")
-    }
-      )
-      .catch(err=>setErrors(err.response.data))
-      setValidated(true);
+    setMessage(res.data.message)
+    setShow(true)
+    setTimeout(()=>{
+    setShow(false)
+    }, 4000);
+  })
+  .catch(err=>setErrors(err.response.data))
+  setValidated(true);
     
     
   };
@@ -66,15 +69,16 @@ function AddMateriel() {
                   <p className="mb-4 pb-2 pb-md-0 mb-md-5 px-md-2" style={{fontSize:"13px",marginTop:"-30px"}}><span style={{ fontWeight: "bold" }}>Vous avez un équipement ?</span> <br />
                     <span style={{ fontWeight: "bold" }}>vous souhaitez le louer aux agriculteurs ?</span> <br /> AgroSmart vous donne l'occasion via ce plateforme pour le poster .<br/> Merci de complèter le formulaire ci-dessous pour poster votre materièl. </p>
 
-              <Form  className="px-md-2" onSubmit={changeOnClick} encType="multipart/form-data">
+
+              <Form  className="px-md-2" noValidate validated={validated} onSubmit={changeOnClick} encType="multipart/form-data">
               <Form.Group className="mb-3" controlId="formBasicEmail">
               <Form.Control type="file" filename="materielImage" className="form-control-file" onChange={OnChangeFile}  style={{ border: " 3px solid #def8ca" }} />
-              <Form.Control.Feedback type="invalid">required Image</Form.Control.Feedback>
+              <Form.Control.Feedback type="invalid">{errors.nom}</Form.Control.Feedback>
             </Form.Group>
 
             <Form.Group className="mb-3" controlId="formBasicPassword" hasValidation>
               <Form.Control type="text" placeholder="Nom d'équipement" name="Nomeq" style={{ border: " 3px solid #def8ca" }} onChange={e=>setNom(e.target.value)} required />
-              <Form.Control.Feedback type="invalid"></Form.Control.Feedback>
+                      <Form.Control.Feedback type="invalid">{errors.nom}</Form.Control.Feedback>
             </Form.Group>
 
             <Form.Group className="mb-3" controlId="formBasicmateriel">

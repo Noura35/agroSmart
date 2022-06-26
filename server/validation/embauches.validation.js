@@ -13,24 +13,21 @@ module.exports = function ValidateEmbauche (data){
     data.Contact = !isEmpty(data.Contact) ? data.Contact : "" ;
   
 
-   // if(!validator.isEmail(data.Email)){
-       // errors.Email=" Format required Email";
-   // }
 
 if(validator.isEmpty(data.NomEmb)){
-    errors.NomEmb="required nameEmb";
+    errors.NomEmb="Le nom d'embauche est requis";
 }
 
 if(validator.isEmpty(data.VilleEmb)){
-    errors.VilleEmb="required VilleEmb";
+    errors.VilleEmb="Le ville d'embauche est requis";
 }
 
 if(validator.isEmpty(data.Competences)){
-    errors.Competences="required Competences";
+    errors.Competences="Les compétences d'agriculteur sont requis";
 }
 
 if(validator.isEmpty(data.Contact)){
-    errors.Contact="required Contact";
+    errors.Contact="Le contact est requis";
 }
 
 

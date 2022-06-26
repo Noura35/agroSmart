@@ -33,14 +33,21 @@ function UpdateEmb () {
             .then(res => {
                 navigate('/annonces')
             })
-            .catch(err => setErrors(err.response.data))
+            .catch(err => {
+                setErrors(err.response.data)
+            })
+             setValidated(true);
+
 
     }
 
-    useEffect(async () => {
-        await axios.get(`/api/embauches/cardembauche/${id}`).then((res) => {
-            setForm(res.data);
-        });
+    useEffect(() => {
+        axios.get(`/api/embauches/cardembauche/${id}`)
+            .then((res) => {
+        setForm(res.data);
+            })
+            .catch(err => console.log(err));
+
     }, []);
 
     return (

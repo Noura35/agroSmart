@@ -62,26 +62,45 @@ module.exports.createMateriel = async (req, res) => {
 
 
 module.exports.updateMateriel = (req, res) => {
-  if (!ObjectID.isValid(req.params.id))
-    return res.status(400).send("ID unknown : " + req.params.id);
 
-  const updatedRecord = {
+  const{errors,isValid}=ValidateMateriel(req.body)
+
+    try{
+      if (!isValid) {
+        res.status(404).json(errors)
+      } else {
+
+
+        if (!ObjectID.isValid(req.params.id))
+          return res.status(400).send("ID unknown : " + req.params.id);
+
+        const updatedRecord = {
    
-    nom: req.body.nom,
-    prix: req.body.prix,
-    description: req.body.description,
-    tel: req.body.tel,
-  };
+          nom: req.body.nom,
+          prix: req.body.prix,
+          description: req.body.description,
+          tel: req.body.tel,
+        };
 
-  MaterielModel.findByIdAndUpdate(
-    req.params.id,
-    { $set: updatedRecord },
-    { new: true },
-    (err, docs) => {
-      if (!err) res.send(docs);
-      else console.log("Update error : " + err);
+        MaterielModel.findByIdAndUpdate(
+          req.params.id,
+          { $set: updatedRecord },
+          { new: true },
+          (err, docs) => {
+            if (!err) res.send(docs);
+            else console.log("Update error : " + err);
+          }
+        );
+          
+      }
     }
-  );
+    catch(error){
+    console.log(error.message)
+    }
+
+
+
+
 };
 
 

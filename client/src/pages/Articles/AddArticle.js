@@ -29,7 +29,7 @@ const AddArticle = () => {
     axios
       .post('/api/articles', articles)
       .then(res => 
-        {setMessage(res.data)
+        {
           navigate('/articles')
         })
       .catch(err=>setErrors(err.response.data))
@@ -57,17 +57,17 @@ const AddArticle = () => {
 
           <Form.Group className="mb-4" hasValidation>
             <Form.Control type="text" placeholder="Nom d'éditeur" htmlFor="authorname" style={{ border: " 3px solid c9ecf8" }} onChange={e => setAuthorname(e.target.value)} required />
-            <Form.Control.Feedback type="invalid">authorname est requis</Form.Control.Feedback>
+                      <Form.Control.Feedback type="invalid">{errors.authorname}</Form.Control.Feedback>
           </Form.Group>
 
           <Form.Group className="mb-4" hasValidation>
             <Form.Control type="text" placeholder="Titre d'article " htmlFor="title" style={{ border: " 3px solid c9ecf8" }} onChange={e => setTitle(e.target.value)} required />
-            <Form.Control.Feedback type="invalid">titre est requis </Form.Control.Feedback>
+            <Form.Control.Feedback type="invalid">{errors.title}</Form.Control.Feedback>
           </Form.Group>
 
           <Form.Group className="mb-4" >
             <Form.Control as="textarea" rows={3} placeholder="Le contenu d'article " htmlFor="article" onChange={e => setArticle(e.target.value)} style={{ border: " 3px solid c9ecf8" }} required />
-            <Form.Control.Feedback type="invalid">article est resquis</Form.Control.Feedback>
+            <Form.Control.Feedback type="invalid">{errors.article}</Form.Control.Feedback>
           </Form.Group>
 
           <div style={{ display: "flex", justifyContent: "center" }}>

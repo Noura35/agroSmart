@@ -161,7 +161,7 @@ const Materiels = ({ cards, user }) => {
                                         {user.isConnected ? (
                                                 <div style={{marginLeft:"35px"}}>
                                                 <a href={`/materiels/${materiel._id}`}  style={{marginRight:"20px"}}>
-                                                <IconContext.Provider value={{ size: 22, color:"#b2bec3"}}>
+                                                <IconContext.Provider value={{ size: 22, color:"rgb(5, 168, 5)"}}>
                                                 <FiEdit />
                                                 </IconContext.Provider>
                                                  </a>                                                                          

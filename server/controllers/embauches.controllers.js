@@ -40,18 +40,25 @@ const FindSinglEmbauche = async (req,res)=>{
 }
 
 
-const UpdateEmbauche = async (req,res)=>{
+const UpdateEmbauche = async (req, res) => {
+    const { errors, isValid } = ValidateEmbauche(req.body)
+
+    try {
+        if (!isValid) {
+            res.status(404).json(errors)
+        } else {
    
-    try{
-        const data = await embauches.findOneAndUpdate({_id:req.params.id},
-          req.body,
-          {new : true}  
+    
+            const data = await embauches.findOneAndUpdate({ _id: req.params.id },
+                req.body,
+                { new: true }
             )
-        res.status(201).json(data)
-    }
-    catch(error){
+            res.status(201).json(data)
+    
+        }
+    }catch(error){
     console.log(error.message)
-}
+    }
 }
 
 const DeleteEmbauche = async (req,res)=>{
