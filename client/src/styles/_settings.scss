@@ -17,13 +17,14 @@ $font-3: "font-3", serif;
 $font-4:"satisfy";
 
 $color-1: #e2eef5;
-$color-2:  rgb(5, 168, 5);
+$color-2: #6dadd4;
 $color-3: rgb(0, 22, 44);
-$color-4: #caf7e2;
+$color-4: #e7f2fa;
 $color-5:#d2f0be;
 $color-6:#8ecc61;
-$color-7:#D4E6F1;
-$color-8:#D4E6F1;
+$color-7:#8bc3e6;
+$color-8:#bed8e9;
+
 $black: rgb(40, 40, 40);
 $white: rgb(253, 253, 253);
 $shadow: rgb(219, 218, 218);
@@ -72,8 +73,10 @@ input[type="submit"] {
   border-radius: 20px;
 
   &:hover {
-    background:  $color-1 ;
     color: $color-2;
+    background: $color-8;
+
+
   }
 }
 input[type="checkbox"] {

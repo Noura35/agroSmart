@@ -131,12 +131,13 @@
       }
       .button-container {
         .btn {
-          background: $color-2;
+          background: $color-7;
           width: 240px;
+          color: $white;
           transform: translateY(-3px);
 
           &:hover {
-            background: $color-1;
+            background: $color-8;
             width: 250px;
             letter-spacing: 1px;
           }
@@ -283,7 +284,7 @@
           margin-top: 14px;
           label {
             background: $white;
-            color: $color-1;
+            color: $color-2;
             padding: 6px 12px 5px;
             border-radius: 20px 20px 20px 6px;
             cursor: pointer;
@@ -309,7 +310,7 @@
             float: right;
 
             span {
-              background: $white;
+              background: $color-2;
               padding: 10px 5px;
               border-radius: 50px;
               margin-right: 6px;
@@ -317,7 +318,8 @@
               cursor: pointer;
 
               &:hover {
-                background: $color-2;
+                background: $color-1;
+
               }
 
               img {
@@ -400,6 +402,7 @@
         margin: 0;
         margin-left: 5px;
         width: 150px;
+        background-color: $color-7;
 
         &:nth-child(1) {
           background: $color-1;
