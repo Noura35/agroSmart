@@ -5,6 +5,7 @@ import {Form}from 'react-bootstrap';
 import "./Embauche.css";
 import  tracture from '../../images/agriculteur.webp'
 import '../../../App.css'
+import { useNavigate } from "react-router-dom";
 
 function Embauche () {
   const[form , setForm]=useState({})
@@ -12,6 +13,7 @@ function Embauche () {
   const [validated, setValidated] = useState(false);
   const[message,setMessage]=useState("")
   const[show,setShow]=useState(false)
+   const navigate = useNavigate()
 
   const onChangeHandler = (e)=>{
   setForm({
@@ -30,7 +32,7 @@ const onSubmitHandler =(e)=>{
     setTimeout(()=>{
     setShow(false)
     }, 4000);
-  })
+  }).then(res=>{navigate('/annonces')})
   .catch(err=>setErrors(err.response.data))
   setValidated(true);
 }

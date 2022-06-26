@@ -4,6 +4,9 @@ const ObjectID = require("mongoose").Types.ObjectId;
 const fs = require("fs");
 const { promisify } = require("util");
 const pipeline = promisify(require("stream").pipeline);
+const ValidateMateriel = require('../validation/materiles.validation')
+
+
 
 module.exports.readMateriel = (req, res) => {
   MaterielModel.find((err, docs) => {
@@ -16,6 +19,15 @@ module.exports.readMateriel = (req, res) => {
 
 module.exports.createMateriel = async (req, res) => {
   let fileName;
+ const{errors,isValid}=ValidateMateriel(req.body)
+
+    try{
+      if (!isValid) {
+        res.status(404).json(errors)
+      } else {
+
+
+
 
   if (req.file !== null) {
     try {
@@ -51,12 +63,20 @@ module.exports.createMateriel = async (req, res) => {
   
   });
 
-  try {
+ 
     const materiel = await newMateriel.save();
     return res.status(201).json(materiel);
-  } catch (err) {
-    return res.status(400).send(err);
-  }
+      }
+    
+      }
+    catch(error){
+    console.log(error.message)
+    }
+
+
+
+
+
 };
 
 

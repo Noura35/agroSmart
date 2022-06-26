@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import {Form } from 'react-bootstrap';
 import axios from "axios";
+
 import { Link, Navigate, useNavigate } from "react-router-dom";
 import  tracture from '../../images/tracture.jpg'
 import  '../../../App.css'
@@ -46,8 +47,12 @@ function AddMateriel() {
     setTimeout(()=>{
     setShow(false)
     }, 4000);
-  })
-  .catch(err=>setErrors(err.response.data))
+  }).then(res=>navigate('/materiels'))
+      .catch(err => {
+        setErrors(err.response.data)
+        console.log(err.response.data)
+      }
+    )
   setValidated(true);
     
     
@@ -69,11 +74,10 @@ function AddMateriel() {
                   <p className="mb-4 pb-2 pb-md-0 mb-md-5 px-md-2" style={{fontSize:"13px",marginTop:"-30px"}}><span style={{ fontWeight: "bold" }}>Vous avez un équipement ?</span> <br />
                     <span style={{ fontWeight: "bold" }}>vous souhaitez le louer aux agriculteurs ?</span> <br /> AgroSmart vous donne l'occasion via ce plateforme pour le poster .<br/> Merci de complèter le formulaire ci-dessous pour poster votre materièl. </p>
 
-
               <Form  className="px-md-2" noValidate validated={validated} onSubmit={changeOnClick} encType="multipart/form-data">
               <Form.Group className="mb-3" controlId="formBasicEmail">
               <Form.Control type="file" filename="materielImage" className="form-control-file" onChange={OnChangeFile}  style={{ border: " 3px solid #def8ca" }} />
-              <Form.Control.Feedback type="invalid">{errors.nom}</Form.Control.Feedback>
+              <Form.Control.Feedback type="invalid"></Form.Control.Feedback>
             </Form.Group>
 
             <Form.Group className="mb-3" controlId="formBasicPassword" hasValidation>
@@ -83,17 +87,17 @@ function AddMateriel() {
 
             <Form.Group className="mb-3" controlId="formBasicmateriel">
               <Form.Control type="text" placeholder="Prix en TND" name="Priceeq" style={{ border: " 3px solid #def8ca" }} onChange={e=>setPrix(e.target.value)} required />
-              <Form.Control.Feedback type="invalid"></Form.Control.Feedback>
+              <Form.Control.Feedback type="invalid">{errors.prix}</Form.Control.Feedback>
             </Form.Group>
 
             <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1" >
               <Form.Control as="textarea" rows={3} placeholder="description d'équipement" name="Desceq" style={{ border: " 3px solid #def8ca" }} onChange={e=>setDescription(e.target.value)} required />
-              <Form.Control.Feedback type="invalid"></Form.Control.Feedback>
+                      <Form.Control.Feedback type="invalid">{errors.description}</Form.Control.Feedback>
             </Form.Group>
 
             <Form.Group className="mb-3" controlId="formBasicmateriel">
               <Form.Control type="text" placeholder="Votre Tel" name="Teleq" style={{ border: " 3px solid #def8ca" }} onChange={e=>setTel(e.target.value)} required />
-              <Form.Control.Feedback type="invalid"></Form.Control.Feedback>
+                      <Form.Control.Feedback type="invalid">{errors.tel}</Form.Control.Feedback>
             </Form.Group>
                     
               <div style={{ display: "flex", justifyContent: "center" }}>
