@@ -59,7 +59,7 @@ function UpdateEmb () {
     <div className="container py-5 h-100" >
     <div className="row d-flex justify-content-center align-items-center h-100 " >
       <div className="col-lg-8 col-xl-6" >
-        <div className="card rounded-3" id="cont1">
+        <div className="card rounded-3" id="cont3">
         <img src={embauche} className="w-100" style={{ borderTopLeftRadius: " .3rem", borderTopRightRadius: " .3rem",height:"280px"}} alt="Sample photo"/>
         <div className="card-body p-4 p-md-5">
 
@@ -87,7 +87,7 @@ function UpdateEmb () {
 
                 <div style={{ display: "flex", justifyContent: "center" }}>
                     <button type="Submit">Modifier</button>
-                    <button  className='btn4' type='reset'>Annuler</button>
+                    <button className='btn4' type='reset'>Annuler</button>
                 </div>
             </Form>
 
