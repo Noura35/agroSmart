@@ -29,8 +29,8 @@ function SignUp() {
 
 
   return (
-       <section className="container " >
-       <div className="h-100 h-custom" style={{margin:"100px 0"}}>
+    <section className="container " >
+    <div className="h-100 h-custom" style={{margin:"100px 0"}}>
     <div className="container py-5 h-100" >
     <div className="row d-flex justify-content-center align-items-center h-100 " >
       <div className="col-lg-8 col-xl-6" >

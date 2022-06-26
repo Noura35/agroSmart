@@ -42,15 +42,15 @@ const Materiel = (props) => {
                     <div className='row'>
                         <div className='col'>
 
-                        <img src={`${fileName}`} style={{width:"400px",height:"350px",marginTop:"130px",marginLeft:"60px"}}/>
+                        <img src={`${fileName}`} style={{width:"400px",height:"350px",margin:"130px 60px 30px 30px",boxShadow: "rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px"}}/>
                         </div>
                         <div className="col">
-                            <h2 style={{color:"blue",size:"50px",marginTop:"140px"}}>{nom}</h2>
-                            <p style={{fontWeight:"bold",fontSize:"18px",marginTop:"20px"}}>{prix}TND</p>
+                            <h2 style={{color:"#3587b9",size:"50px",marginTop:"140px",textTransform: "capitalize"}}>{nom}</h2>
+                            <p style={{fontWeight:"bold",fontSize:"18px",marginTop:"20px",color:"rgb(5, 168, 5)"}}>{prix}TND</p>
                             <p style={{marginTop:"50px"}}>{description}</p>
-                            <p style={{marginTop:"20px"}}> pour plus d'informations : {tel}</p>
+                            <p style={{marginTop:"20px"}}> pour plus d'informations : <span style={{fontWeight:"bold"}}>{tel}</span> </p>
 
-                            <a type="button" href="/materiels" class="btn btn-success" style={{ width: "max-content",marginLeft:"-0px",marginTop:"70px",marginBottom:"60px" }}>Retour aux Equipements</a>
+                            <Link to="/materiels"><button  className="btn5" style={{ width: "max-content",marginTop:"30px"}}> Retour aux Equipements </button></Link>
                         </div>
 
                         

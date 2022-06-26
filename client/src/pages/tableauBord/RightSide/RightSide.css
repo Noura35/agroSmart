@@ -21,6 +21,7 @@
     color: white;
     position:relative;
     cursor: pointer;
+    margin-top: -20px;
     padding: 1rem;
     gap: 1rem;
     background: linear-gradient(180deg,#7bed9f,#b8e994 100%);
@@ -48,7 +49,8 @@
 
 .off{
     background-color: #e21c0d;
-    color:#fff
+    color:#fff;
+    margin: 0px 20px;
 }
 
 .off:hover{

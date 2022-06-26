@@ -46,7 +46,7 @@ const rows = [
    return (
       <div className='Table'>
             
-            <h3>Aujourd'hui</h3>
+            <h3  style={{fontFamily: "satisfy",margin:"15px"}}>Aujourd'hui</h3>
 
 
 

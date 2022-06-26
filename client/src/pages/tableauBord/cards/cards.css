@@ -10,6 +10,8 @@
 
 }
 
+
+
 .CompactCard{
     display: flex;
     flex:1;
@@ -19,6 +21,7 @@
     position:relative;
     cursor: pointer;
     padding: 1rem;
+    margin: 7px;
 
 
 }

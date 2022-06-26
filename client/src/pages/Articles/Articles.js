@@ -24,7 +24,7 @@ const Articles = ({ posts,user }) => {
 
     return (
         <div>
-            <h2 style={{ textAlign: "center", fontSize: "60px", color: "black", background: `url(${blogima})`, backgroundSize: "auto", padding: "170px", fontFamily: "satisfy", marginBottom: "0px", color: "HighlightText" , backgroundSize:"cover"}}> Cultivons un peu !</h2>
+            <h2 style={{ textAlign: "center", fontSize: "80px", color: "black", background: `url(${blogima})`, backgroundSize: "auto", padding: "170px", fontFamily: "satisfy", marginBottom: "0px", color: "HighlightText" , backgroundSize:"cover"}}> Cultivons un peu !</h2>
             <Navbar user={user}/>
 
             {!posts.length ? <img src={spinner} alt="Loading..." style={{ display: "block", width: "120px", height: "120px", margin: "0 auto" }}/> :
@@ -34,7 +34,7 @@ const Articles = ({ posts,user }) => {
                        <Link  style={{textDecoration:"none"}} to={{
                             pathname: `/article/${article._id}`
                         }}>
-                            <h2 style={{marginTop:"20px" , color:"green" , fontSize:""}}>{article.title}</h2>
+                            <h2 style={{marginTop:"20px" , color:"green" , fontFamily:"lobster"}}>{article.title}</h2>
                         </Link >
                         <p style={{ overflow: "hidden",textOverflow:"ellipsis",display:"-webkit-box",WebkitLineClamp:"4", WebkitBoxOrient: "vertical"}}>{article.article}</p>
                         <span className="badge bg-secondary p-2" style={{marginTop:"20px"}}> by {article.authorname}</span>
@@ -43,13 +43,13 @@ const Articles = ({ posts,user }) => {
             {
   
                 user.role === 'ADMIN' ? (  <div className='row my-5' >
-                            <div className='col-sm-2'>
-                                <Link to= {`/articles/${article._id}`} className='btn btn-outline-success' style={{ width: "max-content" }} > Edit Article</Link>
+                            <div className='col'>
+                                <Link to= {`/articles/${article._id}`} className='btn5' style={{ width: "max-content"}} > Edit Article</Link>
                             </div>
 
 
-                            <div className='col-sm-2'>
-                                <a href="#" className='btn btn-outline-danger' style={{ width: "max-content",marginLeft:"100px" }}  onClick={() => Deletearticle (article._id)}> Delete Article</a>
+                            <div className='col'>
+                                <Link to="#" className='btn4' style={{ width: "max-content",marginLeft:"-300px",color:"#e74c3c" }}  onClick={() => Deletearticle (article._id)}> Delete Article</Link>
                             </div>
                         </div>) : ""
               }                       

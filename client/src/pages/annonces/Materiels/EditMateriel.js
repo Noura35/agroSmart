@@ -1,11 +1,12 @@
 import axios from 'axios';
 import React from 'react'
-import blogimak from '../../images/gros.webp'
 import { useEffect } from 'react';
 import { useState } from 'react';
 import { Button, Form } from 'react-bootstrap';
-import { useNavigate, useParams } from 'react-router-dom';
-
+import { Link, useNavigate, useParams } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import  tracture from '../../images/tracture.jpg'
+import  '../../../App.css'
 function EditMateriel(props) {
 
     console.log(props)
@@ -16,9 +17,25 @@ function EditMateriel(props) {
    const [tel, setTel] = useState("");
    const [fileName,setFileName]=useState("");
     const [message,setMessage]=useState("");
-    const navigate = useNavigate()
+  const navigate = useNavigate();
 
   let { id } = useParams();
+
+   const [form, setForm] = useState({});
+  const dispatch = useDispatch();
+  const errors = useSelector(state => state.errors);
+
+  const onChangeHandler = (e) => {
+    setForm({
+      ...form,
+      [e.target.name] : e.target.value
+  })
+}
+ 
+  const onSubmit = (e) => { 
+    e.preventDefault();
+    //dispatch(Registration(form,navigate))
+}  
   
    const OnChangeFile = (e) => {
         setFileName(e.target.files[0]);
@@ -57,18 +74,20 @@ useEffect(() => {
 }, []);
 
   return (
-    <div className="containerss" style={{ background: `url(${blogimak})`, backgroundSize: "cover", padding: "5px", opacity: ".9" }} >
-    <div className="row">
-      <div className="col">
-      <p className="message" style={{marginTop:"0px",marginLeft:"22px" ,color:"black" , padding:"10px"}}>{message}</p>
+<section className="container " >
+    <div className="h-100 h-custom" style={{margin:"100px 0"}}>
+    <div className="container py-5 h-100" >
+    <div className="row d-flex justify-content-center align-items-center h-100 " >
+      <div className="col-lg-8 col-xl-6" >
+        <div className="card rounded-3" id="cont2">
+          <img src={tracture} className="w-100 h-100" style={{ borderTopLeftRadius: " .3rem", borderTopRightRadius: " .3rem"}} alt="Sample photo"/>
+          <div className="card-body p-4 p-md-5">
+            <h3 className="mb-4 pb-2 pb-md-0 mb-md-5 px-md-2" id="title2">Cher Agriculteur !</h3>
 
-        <Form className="emb"  style={{ marginTop: "150px", backgroundColor: "white", border: "solid green", borderRadius: "25px", opacity: "0.9" }}   onSubmit={changeOnClick} encType="multipart/form-data">
+                  
+          <Form  onSubmit={changeOnClick} encType="multipart/form-data">
 
-          <Form.Group className="mb-3" controlId="formBasicEmail">
-            <Form.Control type="file" name="materielImage" onChange={OnChangeFile}
-              style={{ border: " 3px solid #def8ca" }} encType="multipart/form-data"/>
-            <Form.Control.Feedback type="invalid"></Form.Control.Feedback>
-          </Form.Group>
+  
 
           <Form.Group className="mb-3" controlId="formBasicPassword">
             <Form.Control type="text" placeholder="Nom d'équipement" htmlFor="nom" style={{ border: " 3px solid #def8ca" }} value={nom} onChange={e=>setNom(e.target.value)} required />
@@ -90,23 +109,21 @@ useEffect(() => {
             <Form.Control.Feedback type="invalid"></Form.Control.Feedback>
           </Form.Group>
 
-          <div style={{ display: "flex", justifyContent: "center" }}>
-            <Button variant="primary" className='btn2' type="submit" >Envoyer</Button>
-            <Button variant="danger" className='btn3' type="reset">Annuler</Button>
-          </div>
+             <div style={{ display: "flex", justifyContent: "center" }}>
+              <button  className='btn5' type="Submit" >Envoyer</button>
+              <button  className='btn4' type="reset">Annuler</button>
+            </div> 
 
-        </Form>
-      </div>
-      <div className="col">
-        <div style={{width:"450px"}}>
-        <p style={{marginTop:"250px",fontWeight:"bold" }}><p style={{fontWeight:"bold" , color:"green" , fontSize:"20px"}}>Cher Agriculteur ! </p>Vous avez un équipement ? vous souhaitez le louer aux agriculteurs ! AgroSmart vous donne l'occasion via ce plateforme pour le poster . Merci de complèter le formulaire ci-joint pour poster votre materièl. 
-        </p>
+          </Form>
+
+          </div>
         </div>
       </div>
     </div>
-
   </div>
-
+</div> 
+   
+</section>
 
 
 

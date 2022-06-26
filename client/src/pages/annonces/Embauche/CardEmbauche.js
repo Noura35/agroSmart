@@ -39,12 +39,11 @@ function CardEmbauche({ user }) {
   }, [])
   return (
 
-    <div style={{ marginTop: "80px " }} >
+    <div>
 
-      <div style={{ background: `url(${blogima})`, backgroundSize: "cover", marginTop: "-200px", padding: "120px" }}>
+      <div style={{ background: `url(${blogima})`, backgroundSize: "cover", padding: "300px 80px" }}>
         <div className='col' >
-          <h1 style={{ color: "#b33939", fontSize: "30px", fontWeight: "bold", padding: "300px", fontFamily: "serif", marginTop: "-40px", marginLeft: "-350px" }}></h1>
-          <p style={{ marginTop: "-260px", marginLeft: "-90px", padding: "10px", fontSize: "20px", fontWeight: "bold", fontFamily: "monospace", color: "black", backgroundColor: "white", opacity: "0.5" }}> AgroSmart vous donne la possibilité de touver votre embauche dans l'agriculture d'apres ces annonces ci-dessous et de trouver aussi  des employées si vous avez besoin des agriculteurs dans votre terrain en accedant au formulaire  et remplir les champs pour poster votre annonce .</p>
+          <p style={{ marginRight: "-80px", padding: "30px", backgroundColor: "white", opacity: "0.75" }}> <p  style={{ color: "#e58e26", fontFamily: "satisfy", fontWeight: "bold",fontSize:"40px",margin:"10px 0px 30px 10px" }}>AgroSmart</p> <p style={{marginLeft:"40px", color: "black",fontWeight:'bold'}}>vous donne la possibilité de touver votre embauche dans l'agriculture d'apres ces annonces ci-dessous et de trouver aussi  des employées si vous avez besoin des agriculteurs dans votre terrain en accedant au formulaire  et remplir les champs pour poster votre annonce .</p></p>
 
         </div>
       </div>

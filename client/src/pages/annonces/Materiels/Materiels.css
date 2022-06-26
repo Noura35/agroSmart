@@ -4,3 +4,23 @@
     margin-top:0px;
   background-color:#f7f3da;
 }
+
+#cont2{
+box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+}
+#cont2:hover{
+box-shadow: none;
+border-bottom: 3px solid #e74c3c;
+
+}
+
+#title2{
+
+  font-family: 'Arial Narrow', Arial, sans-serif;
+  font-size: 20px;
+  font-weight: bold;
+  color:#e74c3c;
+  text-transform: uppercase;
+}
+  
+  

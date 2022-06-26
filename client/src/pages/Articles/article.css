@@ -1,0 +1,16 @@
+ #nav-link{ 
+    color:#e58e26;
+    font-size:20px;
+    font-family: monospace;
+     font-weight:"bold";
+     margin-left: 20px;
+
+    
+    }
+
+     #nav-link:hover{ 
+    color:#f7b360;
+     border-bottom:2px solid #e58e26 ;
+
+
+     }

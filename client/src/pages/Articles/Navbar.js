@@ -1,6 +1,6 @@
 import React, { useReducer } from 'react'
 import { Link } from 'react-router-dom'
-
+import './article.css'
 const Navbar = ({user}) => {
   return (
     <nav className="navbar navbar-expand-lg navbar-light bg-light" >
@@ -9,12 +9,12 @@ const Navbar = ({user}) => {
       <div className="collapse navbar-collapse" id="navbarSupportedContent">
         <ul className="navbar-nav mr-auto ">
           <li className="nav-item">
-            <Link className="nav-link " aria-current="page" to="/">Home</Link>
+            <Link className="nav-link "  id="nav-link" aria-current="page" to="/" >Home</Link>
             </li>
             
             {
               user.role=="ADMIN" ?(<li className="nav-item">
-            <Link className="nav-link" to="/addarticle">Add Article</Link>
+            <Link className="nav-link"  id="nav-link" to="/addarticle">Add Article</Link>
           </li>) : ""
             }
           

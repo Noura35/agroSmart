@@ -43,7 +43,7 @@ const arrete = e=>{
               <Updates/>
           </div>
           <form >
-        <h4>Arroser manuellement</h4>
+        <h4  style={{fontFamily: "satisfy",margin:"15px"}}>Arroser à distance</h4>
         
   
          

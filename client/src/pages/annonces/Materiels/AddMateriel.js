@@ -1,9 +1,9 @@
 import React, { useState } from "react";
-import { Button, Form } from 'react-bootstrap';
-import blogimak from '../../images/gros.webp'
+import {Form } from 'react-bootstrap';
 import axios from "axios";
-import { Navigate, useNavigate } from "react-router-dom";
-
+import { Link, Navigate, useNavigate } from "react-router-dom";
+import  tracture from '../../images/tracture.jpg'
+import  '../../../App.css'
 
 function AddMateriel() {
 
@@ -52,20 +52,28 @@ function AddMateriel() {
 
 
   return (
-    <div className="containerss" style={{ background: `url(${blogimak})`, backgroundSize: "cover", padding: "5px", opacity: ".9" }} >
-      <div className="row">
-        <div className="col">
-        <p className="message" style={{marginTop:"0px",marginLeft:"22px" ,color:"black" , padding:"10px"}}>{message}</p>
 
-          <Form className="emb" noValidate validated={validated} style={{ marginTop: "150px", backgroundColor: "white", border: "solid green", borderRadius: "25px", opacity: "0.9" }}  onSubmit={changeOnClick} encType="multipart/form-data">
+ <section className="container " >
+    <div className="h-100 h-custom" style={{margin:"100px 0"}}>
+    <div className="container py-5 h-100" >
+    <div className="row d-flex justify-content-center align-items-center h-100 " >
+      <div className="col-lg-8 col-xl-6" >
+        <div className="card rounded-3" id="cont2">
+          <img src={tracture} className="w-100 h-100" style={{ borderTopLeftRadius: " .3rem", borderTopRightRadius: " .3rem"}} alt="Sample photo"/>
+          <div className="card-body p-4 p-md-5">
+            <h3 className="mb-4 pb-2 pb-md-0 mb-md-5 px-md-2" id="title2">Cher Agriculteur !</h3>
 
-            <Form.Group className="mb-3" controlId="formBasicEmail">
+                  <p className="mb-4 pb-2 pb-md-0 mb-md-5 px-md-2" style={{fontSize:"13px",marginTop:"-30px"}}><span style={{ fontWeight: "bold" }}>Vous avez un équipement ?</span> <br />
+                    <span style={{ fontWeight: "bold" }}>vous souhaitez le louer aux agriculteurs ?</span> <br /> AgroSmart vous donne l'occasion via ce plateforme pour le poster .<br/> Merci de complèter le formulaire ci-dessous pour poster votre materièl. </p>
+
+              <Form  className="px-md-2" onSubmit={changeOnClick} encType="multipart/form-data">
+              <Form.Group className="mb-3" controlId="formBasicEmail">
               <Form.Control type="file" filename="materielImage" className="form-control-file" onChange={OnChangeFile}  style={{ border: " 3px solid #def8ca" }} />
               <Form.Control.Feedback type="invalid">required Image</Form.Control.Feedback>
             </Form.Group>
 
             <Form.Group className="mb-3" controlId="formBasicPassword" hasValidation>
-              <Form.Control type="text" placeholder="Nom d'équipement" name="Nomeq" style={{ border: " 3px solid #def8ca" }} onChange={e=>setNom(e.target.value)}rerquired />
+              <Form.Control type="text" placeholder="Nom d'équipement" name="Nomeq" style={{ border: " 3px solid #def8ca" }} onChange={e=>setNom(e.target.value)} required />
               <Form.Control.Feedback type="invalid"></Form.Control.Feedback>
             </Form.Group>
 
@@ -83,23 +91,22 @@ function AddMateriel() {
               <Form.Control type="text" placeholder="Votre Tel" name="Teleq" style={{ border: " 3px solid #def8ca" }} onChange={e=>setTel(e.target.value)} required />
               <Form.Control.Feedback type="invalid"></Form.Control.Feedback>
             </Form.Group>
-
-            <div style={{ display: "flex", justifyContent: "center" }}>
-              <Button variant="primary" className='btn2' type="Submit" >Envoyer</Button>
-              <Button variant="danger" className='btn3' type="reset">Annuler</Button>
-            </div>
-
+                    
+              <div style={{ display: "flex", justifyContent: "center" }}>
+              <button  className='btn5' type="Submit" >Envoyer</button>
+              <button  className='btn4' type="reset">Annuler</button>
+            </div>                              
           </Form>
-        </div>
-        <div className="col">
-          <div style={{width:"450px"}}>
-          <p style={{marginTop:"250px",fontWeight:"bold" }}><p style={{fontWeight:"bold" , color:"green" , fontSize:"20px"}}>Cher Agriculteur ! </p>Vous avez un équipement ? vous souhaitez le louer aux agriculteurs ! AgroSmart vous donne l'occasion via ce plateforme pour le poster . Merci de complèter le formulaire ci-joint pour poster votre materièl. 
-          </p>
+
           </div>
         </div>
       </div>
-
     </div>
+  </div>
+</div> 
+   
+</section>
+
 
 
 
