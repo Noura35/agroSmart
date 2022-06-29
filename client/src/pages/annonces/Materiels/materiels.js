@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import spinner from '../../images/loading.gif';
 import { Link } from 'react-router-dom';
@@ -15,12 +15,16 @@ import { IconContext } from "react-icons";
 
 
 
-
 import { Card, Carousel } from 'react-bootstrap';
 const Materiels = ({ cards, user }) => {
     console.log(cards)
     const [materiel, setMateriel] = useState([])
     const [filter, setFilter] = useState('');
+    const [items, setItems] = useState(cards);
+
+    useEffect(()=> {
+        setItems(cards)
+    },[cards])
    
 
     //Delete materiel by id 
@@ -32,20 +36,20 @@ const Materiels = ({ cards, user }) => {
     }
     };
 
-
     const searchText = (event) => {
         
         setFilter(event.target.value);
         console.log(event.target.value)
+        let datasearch = cards.filter(materiel => {
+            return Object.keys(materiel).some(key =>
+            materiel[key].toString().toLowerCase().includes(filter.toString().toLowerCase())
+            
+            )
+        });
+        setItems(datasearch)
     }
     
-    let datasearch = cards.filter(materiel => {
-        return Object.keys(materiel).some(key =>
-           // materiel[key].toString().toLowerCase().includes(filter.toString().toLowerCase())
-            materiel[key]
-            )
-    });
-
+    
 
     return (
         <div className='containers'>
@@ -117,7 +121,6 @@ const Materiels = ({ cards, user }) => {
                 </Carousel.Item>
             </Carousel>
 
-
             <div className='container'>
                 <div className='mat' >
 
@@ -139,7 +142,7 @@ const Materiels = ({ cards, user }) => {
                 <div style={{ display: "flex", flexWrap: "wrap", backgroundColor: "#f1f2f6" }}>
                     {!cards.length ? <img src={spinner} alt="Loading..." style={{ display: "block", width: "120px", height: "120px", margin: "0 auto" }} /> :
 
-                        datasearch.map((materiel, key) => (
+                        items.map((materiel, key) => (
                             <div style={{ margin: "15px auto" }} >
 
                                 <div style={{ width: '19rem', marginTop: "10px" }}>
@@ -166,7 +169,6 @@ const Materiels = ({ cards, user }) => {
                                                 </IconContext.Provider>
                                                  </a>                                                                          
 
-
                                                 <a href="#" style={{ marginRight: "20px" }} onClick={() => Deletemateriel(materiel._id)}>
                                                 <IconContext.Provider value={{ size: 25, color:"#e74c3c"}}>
                                                 <RiDeleteBin5Line />
@@ -185,7 +187,6 @@ const Materiels = ({ cards, user }) => {
                                 </div>
 
                             </div>
-
 
                         ))
                     }

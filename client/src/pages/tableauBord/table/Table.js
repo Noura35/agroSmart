@@ -35,9 +35,9 @@ export default function BasicTable() {
 }
 
 const rows = [
-  createData('Humidite de sol % ', 262, 16.0, 24),
-  createData("Température de l'air en C %", 159, 6.0, 24),
-  createData("Humidité de l'air %", 237, 9.0, 37),
+  createData('Humidite de sol % ', 28, 56.0, 24),
+  createData("Température de l'air en C %", 30, 26.8, 30),
+  createData("Humidité de l'air %", 23, 19.0, 43),
   
 
 ];
@@ -74,7 +74,7 @@ const rows = [
               <TableCell align="left">{row.valeur1}</TableCell>
               <TableCell align="left">{row.valeur2}</TableCell>
                <TableCell align="left">{row.valeur3}</TableCell>
-               <TableCell align="left">{row.valeur3}</TableCell>
+               <TableCell align="left">{(row.valeur1+row.valeur2+row.valeur3)/3}</TableCell>
 
             </TableRow>
           ))}

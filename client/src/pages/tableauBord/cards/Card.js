@@ -28,7 +28,6 @@ const Card = (props) => {
         for (let i = 0; i < res.data.length; i++) {
         
           time.unshift(moment(res.data[i].date).format("LT"))
-          time.reverse()
 
     }
 

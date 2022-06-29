@@ -46,9 +46,9 @@ const Materiel = (props) => {
                         </div>
                         <div className="col">
                             <h2 style={{color:"#3587b9",size:"50px",marginTop:"140px",textTransform: "capitalize"}}>{nom}</h2>
-                            <p style={{fontWeight:"bold",fontSize:"18px",marginTop:"20px",color:"rgb(5, 168, 5)"}}>{prix}TND</p>
-                            <p style={{marginTop:"50px"}}>{description}</p>
-                            <p style={{marginTop:"20px"}}> pour plus d'informations : <span style={{fontWeight:"bold"}}>{tel}</span> </p>
+                            <p >Prix à la location: <span style={{fontWeight:"bold",fontSize:"18px",marginTop:"20px",color:"rgb(5, 168, 5)"}}> {prix} TND</span></p>
+                            <p style={{marginTop:"50px"}}>Caractéristiques :<p></p><p>{description}</p></p>
+                            <p style={{marginTop:"20px"}}> Pour plus d'informations : <span style={{fontWeight:"bold"}}>{tel}</span> </p>
 
                             <Link to="/materiels"><button  className="btn5" style={{ width: "max-content",marginTop:"30px"}}> Retour aux Equipements </button></Link>
                         </div>
