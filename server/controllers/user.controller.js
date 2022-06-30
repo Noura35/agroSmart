@@ -19,22 +19,19 @@ module.exports.userInfo = (req, res) => {
 };
 
 module.exports.updateUser = async (req, res) => {
-  const { errors, isValid } = ValidateProfile(req.body);
   try {
-    if (!isValid) {
-      res.status(404).json(errors);
-    } else {
       const data = await UserModel.findOneAndUpdate(
         { _id: req.params.id },
         req.body,
         { new: true }
       );
       res.status(201).json(data);
-    }
+    
   } catch (error) {
     console.log(error.message);
   }
 };
+
 
 
 
